@@ -211,7 +211,7 @@ MonoBehaviour:
   nextJelly: {fileID: 7440884412889771180, guid: 9af5d043729df6a4bae2f6a7f3e56329, type: 3}
   jellyImage: {fileID: 21300000, guid: 0b52a8abe35d9a84d8efca7399ba80e2, type: 3}
   level: 2
-  gameManager: {fileID: 0}
+  gameManager: {fileID: 9088391775444124121, guid: 4867d851a61b855498d1b586e59a0555, type: 3}
 --- !u!1 &1996568941910374071
 GameObject:
   m_ObjectHideFlags: 0

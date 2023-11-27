@@ -550,7 +550,7 @@ MonoBehaviour:
   nextJelly: {fileID: 5563099713050919739, guid: 7de679fd6a58af6418fe99a84500e77f, type: 3}
   jellyImage: {fileID: 21300000, guid: 3fc3a3a30a5fecd479458d872a556cde, type: 3}
   level: 0
-  gameManager: {fileID: 0}
+  gameManager: {fileID: 9088391775444124121, guid: 4867d851a61b855498d1b586e59a0555, type: 3}
 --- !u!114 &9166589104566100869
 MonoBehaviour:
   m_ObjectHideFlags: 0

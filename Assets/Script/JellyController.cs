@@ -19,7 +19,7 @@ public class JellyController : MonoBehaviour
 
     private void Start()
     {
-        gameManager = FindAnyObjectByType<GameManager>();
+        gameManager = GetComponent<GameManager>();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
