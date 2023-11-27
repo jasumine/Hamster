@@ -22,10 +22,8 @@ public class JellyController : MonoBehaviour
         gameManager = FindAnyObjectByType<GameManager>();
     }
 
-    private void OnCollisionStay2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     { 
-        Debug.Log("충돌이벤트 발생");
- 
         if(collision.gameObject.tag =="Jelly")
         {
             JellyController other = collision.gameObject.GetComponent<JellyController>();
@@ -41,7 +39,7 @@ public class JellyController : MonoBehaviour
                     float otherY = other.transform.position.y;
 
                     // 내가 아래이거나, 오른쪽에 있을때
-                    if (meY < otherY || (meY == otherY && meX > otherX))
+                    if (meY > otherY || (meY == otherY && meX > otherX))
                     {
                         // other을 숨기고
                         other.HideObject();

@@ -14,9 +14,10 @@ public class GameManager : MonoBehaviour
     public bool ismove = true;
     public int score = 0;
 
-    public float delayTime;
+    public float delayTime = 0.5f;
     public bool isdelay = false;
-    private int jellyNum;
+    private int nowJellyNum;
+    private int nextJellyNum;
 
     private UIManager ui;
 
@@ -25,6 +26,7 @@ public class GameManager : MonoBehaviour
         nowJelly = nowJelly.GetComponent<SpriteRenderer>();
         nextJelly = nextJelly.GetComponent<SpriteRenderer>();
         ui = gameObject.GetComponent<UIManager>();
+        InitJelly();
     }
 
     private void Update()
@@ -53,7 +55,7 @@ public class GameManager : MonoBehaviour
                     Vector3 newPos = new Vector3(x, y, 0);
                     quaternion rotation = quaternion.identity;
 
-                    Instantiate(jellys[jellyNum], newPos, rotation);
+                    Instantiate(jellys[nowJellyNum], newPos, rotation);
 
                     nowJelly.sprite = null;
                     setNowJelly();
@@ -77,6 +79,7 @@ public class GameManager : MonoBehaviour
     {
         if (nowJelly.sprite == null)
         {
+            nowJellyNum = nextJellyNum;
             nowJelly.sprite = nextJelly.sprite;
             nextJelly.sprite = null;
             LandNextJelly();
@@ -89,12 +92,22 @@ public class GameManager : MonoBehaviour
     {
         if (nextJelly.sprite == null)
         {
-            jellyNum = UnityEngine.Random.Range(0, jellys.Length);
-            JellyController jelly = jellys[jellyNum].GetComponent<JellyController>();
+            nextJellyNum = UnityEngine.Random.Range(0, jellys.Length);
+            JellyController jelly = jellys[nextJellyNum].GetComponent<JellyController>();
 
             nextJelly.sprite = jelly.jellyImage;
         }
         else return;
+    }
+
+
+    private void InitJelly()
+    {
+        LandNextJelly();
+        nowJellyNum = nextJellyNum;
+        nowJelly.sprite = nextJelly.sprite;
+        nextJelly.sprite = null;
+        LandNextJelly();
     }
 
 

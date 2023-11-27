@@ -5,8 +5,8 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public int moveSpeed;
-    private float maxXPos = 2.8f;
-    private float minXPos = -2.8f;
+    private float maxXPos = 2.5f;
+    private float minXPos = -2.5f;
 
     GameManager manager;
 

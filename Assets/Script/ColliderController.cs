@@ -8,7 +8,7 @@ public class ColliderController : MonoBehaviour
     public CircleCollider2D[] boneObject;
     public CircleCollider2D[] bodyObject;
 
-    private void Update()
+    private void FixedUpdate()
     {
         UpdatePos();
     }
