@@ -414,9 +414,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.13, y: 0}
+  m_Offset: {x: 0.12, y: 0}
   serializedVersion: 2
-  m_Radius: 1.57
+  m_Radius: 1.49
 --- !u!1 &5307082787375118335
 GameObject:
   m_ObjectHideFlags: 0
@@ -1212,7 +1212,7 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.00002014637}
@@ -1257,10 +1257,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15a335eca2f969c43a8a84b143278493, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boneObject:
-  - {fileID: 3884169960341411677}
-  bodyObject:
-  - {fileID: 6286762685254365356}
+  boneObject: {fileID: 3884169960341411677}
+  bodyObject: {fileID: 6286762685254365356}
+  offset: {x: -0.06420303, y: -0.2632327, z: 0}
 --- !u!114 &7538405405307761744
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1276,4 +1275,9 @@ MonoBehaviour:
   nextJelly: {fileID: 9213165821089284953, guid: 437367cf1aa1b864f9f2be7f7f750fa8, type: 3}
   jellyImage: {fileID: 21300000, guid: bfc61d14204659044a5023c7bdba7a87, type: 3}
   level: 5
+  boneCollider: {fileID: 3884169960341411677}
+  radius: 0.89
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 128
   gameManager: {fileID: 9088391775444124121, guid: 4867d851a61b855498d1b586e59a0555, type: 3}

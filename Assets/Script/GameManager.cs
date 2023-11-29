@@ -31,10 +31,10 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        pushJelly();
+        PushJelly();
     }
 
-    private void pushJelly()
+    private void PushJelly()
     {
         if(ismove)
         {
@@ -58,7 +58,7 @@ public class GameManager : MonoBehaviour
                     Instantiate(jellys[nowJellyNum], newPos, rotation);
 
                     nowJelly.sprite = null;
-                    setNowJelly();
+                    SetNowJelly();
                 }
             }
         }
@@ -75,7 +75,7 @@ public class GameManager : MonoBehaviour
         isdelay = false;
     }
 
-    private void setNowJelly()
+    private void SetNowJelly()
     {
         if (nowJelly.sprite == null)
         {
@@ -124,6 +124,6 @@ public class GameManager : MonoBehaviour
         // score에 점수를 더해준다.
         score += sum;
 
-        ui.showScore(score);
+        ui.ShowScore(score);
     }
 }

@@ -296,7 +296,7 @@ SpringJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.47636798, y: 2.188018}
+  m_ConnectedAnchor: {x: 0.47636783, y: 2.188018}
   m_AutoConfigureDistance: 1
   m_Distance: 0.005
   m_DampingRatio: 0.5
@@ -416,7 +416,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0.24, y: 0}
   serializedVersion: 2
-  m_Radius: 0.29
+  m_Radius: 1.23
 --- !u!1 &6240513540363481005
 GameObject:
   m_ObjectHideFlags: 0
@@ -550,6 +550,11 @@ MonoBehaviour:
   nextJelly: {fileID: 5563099713050919739, guid: 7de679fd6a58af6418fe99a84500e77f, type: 3}
   jellyImage: {fileID: 21300000, guid: 3fc3a3a30a5fecd479458d872a556cde, type: 3}
   level: 0
+  boneCollider: {fileID: 51876346432764985}
+  radius: 0.23
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 128
   gameManager: {fileID: 9088391775444124121, guid: 4867d851a61b855498d1b586e59a0555, type: 3}
 --- !u!114 &9166589104566100869
 MonoBehaviour:
@@ -563,10 +568,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15a335eca2f969c43a8a84b143278493, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boneObject:
-  - {fileID: 51876346432764985}
-  bodyObject:
-  - {fileID: 402009343989968968}
+  boneObject: {fileID: 51876346432764985}
+  bodyObject: {fileID: 402009343989968968}
+  offset: {x: 0.06686142, y: -0.3556926, z: 0}
 --- !u!58 &402009343989968968
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -596,12 +600,12 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.12, y: 0.0018000603}
   serializedVersion: 2
-  m_Radius: 1.45
+  m_Radius: 1.97
 --- !u!50 &7281000398334770472
 Rigidbody2D:
   serializedVersion: 4
@@ -925,7 +929,7 @@ SpringJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 1.539272, y: -1.626343}
+  m_ConnectedAnchor: {x: 1.539272, y: -1.6263429}
   m_AutoConfigureDistance: 1
   m_Distance: 0.005
   m_DampingRatio: 0.5

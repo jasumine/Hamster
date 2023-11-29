@@ -15,6 +15,9 @@ public class JellyController : MonoBehaviour
     public int level;
     private bool checkCollision = false;
 
+    [SerializeField] private CircleCollider2D boneCollider;
+    [SerializeField] private float radius;
+    [SerializeField] private LayerMask layerMask;
     [SerializeField] private GameManager gameManager;
 
     private void Start()
@@ -22,38 +25,93 @@ public class JellyController : MonoBehaviour
         gameManager = GetComponent<GameManager>();
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    { 
-        if(collision.gameObject.tag =="Jelly")
+    private void Update()
+    {
+
+        CheckOverlap();
+    }
+
+    //private void OnCollisionEnter2D(Collision2D collision)
+    //{ 
+    //    if(collision.gameObject.tag =="Jelly")
+    //    {
+    //        JellyController other = collision.gameObject.GetComponent<JellyController>();
+    //        if (other.level == level)
+    //        {
+
+    //            if (!checkCollision)
+    //            {
+    //                Debug.Log("같은 레벨");
+    //                float meX = transform.position.x;
+    //                float meY = transform.position.y;
+    //                float otherX = other.transform.position.x;
+    //                float otherY = other.transform.position.y;
+
+    //                // 내가 아래이거나, 오른쪽에 있을때
+    //                if (meY > otherY || (meY == otherY && meX > otherX))
+    //                {
+    //                    // other을 숨기고
+    //                    other.HideObject();
+
+    //                    // 다음단계를 생선한다.
+    //                    CraeteObject(meX, meY);
+    //                }
+    //            }
+    //            else return;
+
+    //        }
+    //        else return;
+    //    }
+    //    else return;
+    //}
+
+     private void CheckOverlap()
+    {
+
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(boneCollider.bounds.center, radius, layerMask);
+
+        for (int i = 0; i < colliders.Length; i++)
         {
-            JellyController other = collision.gameObject.GetComponent<JellyController>();
-            if (other.level == level)
+            Debug.Log(colliders[i].name);
+
+            JellyController otherJelly = colliders[i].gameObject.GetComponent<JellyController>();
+            if (otherJelly != null && otherJelly!= this)
             {
-
-                if (!checkCollision)
+                if (otherJelly.tag == "Jelly")
                 {
-                    Debug.Log("같은 레벨");
-                    float meX = transform.position.x;
-                    float meY = transform.position.y;
-                    float otherX = other.transform.position.x;
-                    float otherY = other.transform.position.y;
-
-                    // 내가 아래이거나, 오른쪽에 있을때
-                    if (meY > otherY || (meY == otherY && meX > otherX))
+                    if (otherJelly.level == level)
                     {
-                        // other을 숨기고
-                        other.HideObject();
 
-                        // 다음단계를 생선한다.
-                        CraeteObject(meX, meY);
+                        if (!checkCollision)
+                        {
+                            Debug.Log("같은 레벨");
+                            float meX = boneCollider.bounds.center.x;
+                            float meY = boneCollider.bounds.center.y;
+                            float otherX = otherJelly.boneCollider.bounds.center.x;
+                            float otherY = otherJelly.boneCollider.bounds.center.y;
+
+                            // 내가 아래이거나, 오른쪽에 있을때
+                            if (meY > otherY || (meY == otherY && meX > otherX))
+                            {
+                                // other을 숨기고
+                                otherJelly.HideObject();
+
+                                // 다음단계를 생선한다.
+                                CraeteObject(meX, meY);
+                            }
+                        }
+                        else return;
                     }
+                    else return;
                 }
                 else return;
-
             }
-            else return;
+            else
+            {
+                Debug.Log("충돌되는 젤리가 없습니다.");
+                return;
+            }
         }
-        else return;
     }
 
     private void HideObject()
@@ -67,13 +125,18 @@ public class JellyController : MonoBehaviour
     {
         // object의 위치에 다음단계의 젤리를 생선하고, 점수 갱신, 삭제
         checkCollision = true;
-        Vector2 pos = new Vector2(x, y+1f);
+        Vector2 pos = new Vector2(x, y + 1f);
         quaternion quaternion = quaternion.identity;
         Instantiate(nextJelly, pos, quaternion);
 
-        gameManager.SetScore(level);
+       // gameManager.SetScore(level);
 
         Destroy(gameObject);
     }
 
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(boneCollider.bounds.center, radius);
+    }
 }

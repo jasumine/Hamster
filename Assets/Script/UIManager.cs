@@ -10,10 +10,10 @@ public class UIManager : MonoBehaviour
 
     void Start()
     {
-        showScore(0);
+        ShowScore(0);
     }
 
-    public void showScore(int score)
+    public void ShowScore(int score)
     {
         scoreTXT.text = score.ToString();
     }
