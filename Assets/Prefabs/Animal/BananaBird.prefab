@@ -432,7 +432,7 @@ GameObject:
   - component: {fileID: 9166589104566100869}
   - component: {fileID: 402009343989968968}
   - component: {fileID: 7281000398334770472}
-  m_Layer: 7
+  m_Layer: 10
   m_Name: BananaBird
   m_TagString: Jelly
   m_Icon: {fileID: 0}
@@ -554,7 +554,7 @@ MonoBehaviour:
   radius: 0.23
   layerMask:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 1024
   gameManager: {fileID: 9088391775444124121, guid: 4867d851a61b855498d1b586e59a0555, type: 3}
 --- !u!114 &9166589104566100869
 MonoBehaviour:
@@ -570,7 +570,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   boneObject: {fileID: 51876346432764985}
   bodyObject: {fileID: 402009343989968968}
-  offset: {x: 0.06686142, y: -0.3556926, z: 0}
 --- !u!58 &402009343989968968
 CircleCollider2D:
   m_ObjectHideFlags: 0

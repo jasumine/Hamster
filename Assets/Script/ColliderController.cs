@@ -8,9 +8,8 @@ public class ColliderController : MonoBehaviour
     public CircleCollider2D boneObject;
     public CircleCollider2D bodyObject;
 
-    public Vector3 offset;
 
-    private void FixedUpdate()
+    private void Update()
     {
         UpdatePos();
     }
@@ -35,10 +34,10 @@ public class ColliderController : MonoBehaviour
         Vector3 boneCenter = boneObject.bounds.center;
 
         // offset을 더함
-        Vector3 targetPosition = boneCenter + offset;
+        //Vector3 targetPosition = boneCenter + offset;
 
         // bodyObject를 원하는 위치로 이동
-        bodyObject.transform.position = targetPosition;
+        //bodyObject.transform.position = targetPosition;
 
         foreach (Transform child in transform)
         {

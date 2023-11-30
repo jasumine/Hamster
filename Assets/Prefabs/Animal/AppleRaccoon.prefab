@@ -593,7 +593,7 @@ GameObject:
   - component: {fileID: -6847514093929443443}
   - component: {fileID: 5290849963619527066}
   - component: {fileID: 229158659836893374}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: AppleRaccoon
   m_TagString: Jelly
   m_Icon: {fileID: 0}
@@ -716,7 +716,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   boneObject: {fileID: 3181269972753443451}
   bodyObject: {fileID: 229158659836893374}
-  offset: {x: -0.008123, y: -0.1909078, z: 0}
 --- !u!114 &-6847514093929443443
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -733,10 +732,10 @@ MonoBehaviour:
   jellyImage: {fileID: 21300000, guid: a5bc321dc45a4e348b782c54a2219411, type: 3}
   level: 1
   boneCollider: {fileID: 3181269972753443451}
-  radius: 0.35
+  radius: 0.41
   layerMask:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 512
   gameManager: {fileID: 9088391775444124121, guid: 4867d851a61b855498d1b586e59a0555, type: 3}
 --- !u!50 &5290849963619527066
 Rigidbody2D:

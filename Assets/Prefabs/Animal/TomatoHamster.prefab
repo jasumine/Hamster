@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4788362181816106032}
   - component: {fileID: 273950583603549021}
   - component: {fileID: 7705562264401148124}
-  m_Layer: 7
+  m_Layer: 16
   m_Name: TomatoHamster
   m_TagString: Jelly
   m_Icon: {fileID: 0}
@@ -198,7 +198,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   boneObject: {fileID: 1795403777867220674}
   bodyObject: {fileID: 4788362181816106032}
-  offset: {x: 0.02620374, y: -0.2947931, z: 0}
 --- !u!114 &7705562264401148124
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -218,7 +217,7 @@ MonoBehaviour:
   radius: 1.18
   layerMask:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 65664
   gameManager: {fileID: 9088391775444124121, guid: 4867d851a61b855498d1b586e59a0555, type: 3}
 --- !u!1 &1135294540016602579
 GameObject:

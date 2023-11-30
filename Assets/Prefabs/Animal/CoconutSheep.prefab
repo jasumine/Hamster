@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1175083321660177138}
   - component: {fileID: 41481266067488496}
   - component: {fileID: 360921477726168979}
-  m_Layer: 7
+  m_Layer: 11
   m_Name: CoconutSheep
   m_TagString: Jelly
   m_Icon: {fileID: 0}
@@ -194,7 +194,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   boneObject: {fileID: 8800808461026637019}
   bodyObject: {fileID: 1175083321660177138}
-  offset: {x: 0.0638298, y: -0.2702129, z: 0}
 --- !u!114 &360921477726168979
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -214,7 +213,7 @@ MonoBehaviour:
   radius: 0.48
   layerMask:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 2048
   gameManager: {fileID: 9088391775444124121, guid: 4867d851a61b855498d1b586e59a0555, type: 3}
 --- !u!1 &1996568941910374071
 GameObject:

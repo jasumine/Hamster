@@ -1076,7 +1076,7 @@ GameObject:
   - component: {fileID: 1300244344657941414}
   - component: {fileID: 222491315231077234}
   - component: {fileID: 7538405405307761744}
-  m_Layer: 7
+  m_Layer: 14
   m_Name: OrangeBear
   m_TagString: Jelly
   m_Icon: {fileID: 0}
@@ -1259,7 +1259,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   boneObject: {fileID: 3884169960341411677}
   bodyObject: {fileID: 6286762685254365356}
-  offset: {x: -0.06420303, y: -0.2632327, z: 0}
 --- !u!114 &7538405405307761744
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1276,8 +1275,8 @@ MonoBehaviour:
   jellyImage: {fileID: 21300000, guid: bfc61d14204659044a5023c7bdba7a87, type: 3}
   level: 5
   boneCollider: {fileID: 3884169960341411677}
-  radius: 0.89
+  radius: 0.92
   layerMask:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 16384
   gameManager: {fileID: 9088391775444124121, guid: 4867d851a61b855498d1b586e59a0555, type: 3}

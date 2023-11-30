@@ -28,7 +28,7 @@ public class JellyController : MonoBehaviour
     private void Update()
     {
 
-        CheckOverlap();
+       CheckOverlap();
     }
 
     //private void OnCollisionEnter2D(Collision2D collision)
@@ -72,7 +72,7 @@ public class JellyController : MonoBehaviour
 
         for (int i = 0; i < colliders.Length; i++)
         {
-            Debug.Log(colliders[i].name);
+           // Debug.Log(colliders[i].name);
 
             JellyController otherJelly = colliders[i].gameObject.GetComponent<JellyController>();
             if (otherJelly != null && otherJelly!= this)
@@ -84,7 +84,7 @@ public class JellyController : MonoBehaviour
 
                         if (!checkCollision)
                         {
-                            Debug.Log("같은 레벨");
+                            //Debug.Log("같은 레벨");
                             float meX = boneCollider.bounds.center.x;
                             float meY = boneCollider.bounds.center.y;
                             float otherX = otherJelly.boneCollider.bounds.center.x;
@@ -108,7 +108,7 @@ public class JellyController : MonoBehaviour
             }
             else
             {
-                Debug.Log("충돌되는 젤리가 없습니다.");
+                //Debug.Log("충돌되는 젤리가 없습니다.");
                 return;
             }
         }
@@ -123,7 +123,7 @@ public class JellyController : MonoBehaviour
 
     private void CraeteObject(float x, float y)
     {
-        // object의 위치에 다음단계의 젤리를 생선하고, 점수 갱신, 삭제
+        // object의 위치에 다음단계의 젤리를 생성하고, 점수 갱신, 삭제
         checkCollision = true;
         Vector2 pos = new Vector2(x, y + 1f);
         quaternion quaternion = quaternion.identity;
@@ -136,7 +136,7 @@ public class JellyController : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        Gizmos.color = Color.yellow;
+        Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(boneCollider.bounds.center, radius);
     }
 }
