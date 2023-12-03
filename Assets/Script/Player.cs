@@ -7,10 +7,6 @@ public class Player : MonoBehaviour
     public int moveSpeed;
     private float maxXPos = 2.5f;
     private float minXPos = -2.5f;
-    public GameObject boxParents;
-    public float boxRotationSpeed;
-    public float maxRotate;
-    public float minRotate;
 
     GameManager manager;
 
@@ -33,7 +29,6 @@ public class Player : MonoBehaviour
         if (manager.ismove)
         {
             Move();
-            ShakeBox();
         }
         else return;
     }
@@ -61,46 +56,4 @@ public class Player : MonoBehaviour
         transform.position = currentPos;
     }
 
-    private void ShakeBox()
-    {
-        if(isShake == false && Input.GetKeyDown(KeyCode.R)) 
-        {
-            Debug.Log("박스 회전 실행");
-            StartCoroutine("ChangeZ");
-        }
-    }
-
-    IEnumerator ChangeZ()
-    {
-        isShake = true;
-
-        float z = 0;
-
-        // ===============1==================
-        int count = 0;
-        while(count <=3)
-        {
-
-
-            while (z <= maxRotate)
-            {
-                z += Time.deltaTime * boxRotationSpeed;
-                boxParents.transform.rotation = Quaternion.Euler(0, 0, z);
-            }
-
-            yield return new WaitForSeconds(0.5f);
-
-            while (z >= minRotate)
-            {
-                z -= Time.deltaTime * boxRotationSpeed;
-                boxParents.transform.rotation = Quaternion.Euler(0, 0, z);
-            }
-            count++;
-            yield return new WaitForSeconds(0.5f);
-        }
-
-        boxParents.transform.rotation = Quaternion.Euler(0, 0, 0);
-        isShake = false;
-        
-    }
 }

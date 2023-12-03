@@ -11,6 +11,7 @@ public class JellyController : MonoBehaviour
     // 다음 단계의 젤리
     public GameObject nextJelly;
     public Sprite jellyImage;
+    public Sprite EndJellyImage;
 
     public int level;
     private bool checkCollision = false;
@@ -22,11 +23,16 @@ public class JellyController : MonoBehaviour
 
     private void Start()
     {
-        gameManager = GetComponent<GameManager>();
+        gameManager = FindAnyObjectByType<GameManager>();
     }
 
     private void Update()
     {
+        if(Input.GetKeyDown(KeyCode.G)) 
+        {
+            SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+            spriteRenderer.sprite = EndJellyImage;
+        }
 
        CheckOverlap();
     }
@@ -98,6 +104,7 @@ public class JellyController : MonoBehaviour
 
                                 // 다음단계를 생선한다.
                                 CraeteObject(meX, meY);
+                                break;
                             }
                         }
                         else return;
@@ -127,9 +134,12 @@ public class JellyController : MonoBehaviour
         checkCollision = true;
         Vector2 pos = new Vector2(x, y + 1f);
         quaternion quaternion = quaternion.identity;
-        Instantiate(nextJelly, pos, quaternion);
+        if(nextJelly != null)
+        {
+            Instantiate(nextJelly, pos, quaternion);
+        }
 
-       // gameManager.SetScore(level);
+       gameManager.SetScore(level);
 
         Destroy(gameObject);
     }

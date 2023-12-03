@@ -8,10 +8,18 @@ using UnityEngine;
 public class UIManager : MonoBehaviour
 {
     public TextMeshProUGUI scoreTXT;
+    public GameObject SettingPanel;
+
     public GameObject boxParents;
+    public float boxRotationSpeed;
+    public float maxRotate;
+    public float minRotate;
+
+    private bool isShake;
 
     void Start()
     {
+        isShake = false;
         ShowScore(0);
     }
 
@@ -21,14 +29,55 @@ public class UIManager : MonoBehaviour
     }
 
     // 버튼을 이용해서 실행
-    //private void ShakeBox()
-    //{
-    //    // 박스 흔들기
-    //    Quaternion quaternion;
+    public void ShakeBox()
+    {
+        if (isShake == false)
+        {
+            Debug.Log("박스 회전 실행");
+            StartCoroutine("ShakeBoxZ");
+        }
+    }
+    IEnumerator ShakeBoxZ()
+    {
+        isShake = true;
 
-    //    Vector3 targetPosition = boxParents.transform.position;
-    //    Vector3 rightVector = Vector3.right;
-    //    Quaternion rotation = Quaternion.LookRotation(targetPosition, rightVector);
+        float z = 0;
 
-    //}
+        // ===============1==================
+        int count = 0;
+        while (count <= 3)
+        {
+            while (z <= maxRotate)
+            {
+                z += Time.deltaTime * boxRotationSpeed;
+                boxParents.transform.rotation = Quaternion.Euler(0, 0, z);
+            }
+
+            yield return new WaitForSeconds(0.5f);
+
+            while (z >= minRotate)
+            {
+                z -= Time.deltaTime * boxRotationSpeed;
+                boxParents.transform.rotation = Quaternion.Euler(0, 0, z);
+            }
+            count++;
+            yield return new WaitForSeconds(0.5f);
+        }
+
+        boxParents.transform.rotation = Quaternion.Euler(0, 0, 0);
+        isShake = false;
+    }
+
+    public void ActiveSettingPopUp()
+    {
+        SettingPanel.active = true;
+    }
+
+    public void UnActiveSettingPopUp()
+    {
+        SettingPanel.active = false;
+    }
+
+
+
 }

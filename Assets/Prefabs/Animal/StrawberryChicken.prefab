@@ -114,7 +114,7 @@ SpringJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 1.4595406, y: 1.2703233}
+  m_ConnectedAnchor: {x: 1.4595405, y: 1.2703234}
   m_AutoConfigureDistance: 1
   m_Distance: 0.005
   m_DampingRatio: 0.5
@@ -135,7 +135,7 @@ SpringJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 1.379185, y: -1.4517024}
+  m_ConnectedAnchor: {x: 1.3791848, y: -1.4517022}
   m_AutoConfigureDistance: 1
   m_Distance: 0.005
   m_DampingRatio: 0.5
@@ -253,7 +253,7 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.17, y: -0.08}
+  m_Offset: {x: 0.13, y: -0.25}
   serializedVersion: 2
   m_Radius: 1.16
 --- !u!1 &5060297423860978382
@@ -370,7 +370,7 @@ SpringJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 1.120004, y: 1.5140443}
+  m_ConnectedAnchor: {x: 1.1200043, y: 1.5140445}
   m_AutoConfigureDistance: 1
   m_Distance: 0.005
   m_DampingRatio: 0.5
@@ -391,7 +391,7 @@ SpringJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 1.2903323, y: -1.4418814}
+  m_ConnectedAnchor: {x: 1.2903323, y: -1.4418813}
   m_AutoConfigureDistance: 1
   m_Distance: 0.005
   m_DampingRatio: 0.5
@@ -412,7 +412,7 @@ SpringJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: -1.2041825, y: -0.01080119}
+  m_ConnectedAnchor: {x: -1.2041825, y: -0.010801176}
   m_AutoConfigureDistance: 1
   m_Distance: 0.005
   m_DampingRatio: 0.5
@@ -531,7 +531,7 @@ SpringJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 1.8155229, y: 1.3796408}
+  m_ConnectedAnchor: {x: 1.815523, y: 1.3796409}
   m_AutoConfigureDistance: 1
   m_Distance: 0.005
   m_DampingRatio: 0.5
@@ -552,7 +552,7 @@ SpringJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 1.0480225, y: -1.5647343}
+  m_ConnectedAnchor: {x: 1.0480224, y: -1.5647342}
   m_AutoConfigureDistance: 1
   m_Distance: 0.005
   m_DampingRatio: 0.5
@@ -573,7 +573,7 @@ SpringJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: -0.1655788, y: -1.5818025}
+  m_ConnectedAnchor: {x: -0.16557881, y: -1.5818024}
   m_AutoConfigureDistance: 1
   m_Distance: 0.005
   m_DampingRatio: 0.5
@@ -713,7 +713,7 @@ SpringJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 1.9216094, y: -1.2275767}
+  m_ConnectedAnchor: {x: 1.9216096, y: -1.2275769}
   m_AutoConfigureDistance: 1
   m_Distance: 0.005
   m_DampingRatio: 0.5
@@ -734,7 +734,7 @@ SpringJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 1.6461388, y: -0.19716847}
+  m_ConnectedAnchor: {x: 1.6461388, y: -0.19716845}
   m_AutoConfigureDistance: 1
   m_Distance: 0.005
   m_DampingRatio: 0.5
@@ -770,8 +770,8 @@ Transform:
   m_GameObject: {fileID: 9213165821089284953}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.70354694, y: 0.70354694, z: 0.70354694}
+  m_LocalPosition: {x: -0.0066693, y: 0, z: 0}
+  m_LocalScale: {x: 0.6227094, y: 0.6227094, z: 0.6227094}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5028883984528022990}
@@ -822,7 +822,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d67e111e5fd3c814e8adbd13a031ff9c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d9133f7df72f720428b8b9ee66c188f7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -846,12 +846,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_RootBone: {fileID: 5028883984528022990}
-  m_BoneTransforms:
-  - {fileID: 5028883984528022990}
-  - {fileID: 4231516083842750915}
-  - {fileID: 9192200431261721088}
-  - {fileID: 1545730328708741626}
-  - {fileID: 6277083334080756791}
+  m_BoneTransforms: []
   m_Bounds:
     m_Center: {x: -0.09000003, y: -0.000880003, z: 0}
     m_Extent: {x: 1.525, y: 1.73912, z: 0}
@@ -945,11 +940,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b836ef075fdf79a44bab6a1fd405743c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextJelly: {fileID: 1101795159292160992, guid: 7946d087b925f1b4982e780cb8679918, type: 3}
-  jellyImage: {fileID: 21300000, guid: d67e111e5fd3c814e8adbd13a031ff9c, type: 3}
-  level: 6
+  nextJelly: {fileID: 8496000488352358301, guid: 181bc8b6fde6b744bb0b37b2ce0ce2b3, type: 3}
+  jellyImage: {fileID: 21300000, guid: d9133f7df72f720428b8b9ee66c188f7, type: 3}
+  EndJellyImage: {fileID: 21300000, guid: d4ccd986b00e138438255eaa9c931780, type: 3}
+  level: 10
   boneCollider: {fileID: 8219393133644506416}
-  radius: 1.13
+  radius: 1
   layerMask:
     serializedVersion: 2
     m_Bits: 32768

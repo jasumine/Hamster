@@ -47,11 +47,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jellys:
   - {fileID: 6240513540363481005, guid: c7d77b2d352dda74eb1c226ac1293a1a, type: 3}
-  - {fileID: 5563099713050919739, guid: 7de679fd6a58af6418fe99a84500e77f, type: 3}
   - {fileID: 101064271278691850, guid: 7119ea97736d3fc4a8e77d215237389b, type: 3}
-  - {fileID: 7440884412889771180, guid: 9af5d043729df6a4bae2f6a7f3e56329, type: 3}
   - {fileID: 3323199018001869564, guid: 3260c975af790a34ab92d22b373cf067, type: 3}
-  - {fileID: 8771297090932332684, guid: 25978d95c0b4f634f925bd637c169d2e, type: 3}
+  - {fileID: 6411676507386821544, guid: 29ef0dd573be2da49a24e7e9359279d2, type: 3}
+  - {fileID: 2138107759011125086, guid: e91108df31019464383e74a4fb624059, type: 3}
+  - {fileID: 1101795159292160992, guid: 7946d087b925f1b4982e780cb8679918, type: 3}
   nowJelly: {fileID: 0}
   nextJelly: {fileID: 0}
   ismove: 1
@@ -71,3 +71,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreTXT: {fileID: 0}
+  boxParents: {fileID: 0}
