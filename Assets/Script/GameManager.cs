@@ -132,7 +132,7 @@ public class GameManager : MonoBehaviour
 
     private void CheckDeadLine()
     {
-        if(!isdelay)
+        if(!isdelay && ui.isShake== false)
         {
             Collider2D[] colliders = Physics2D.OverlapBoxAll(gameOverBox.transform.position, gameOverBox.transform.localScale,0);
 

@@ -52,7 +52,6 @@ public class UIManager : MonoBehaviour
 
         float z = 0;
 
-        // ===============1==================
         int count = 0;
         while (count <= 3)
         {

@@ -147,7 +147,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 61221802}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a8e912435fa21b54f9f621e65b34a3a5, type: 3}
   m_Name: 
@@ -2192,6 +2192,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 169680209428649945, guid: 6ec3382fe380df341afe8c5f0c0510e7, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -39.80005
+      objectReference: {fileID: 0}
     - target: {fileID: 1047425217428542774, guid: 6ec3382fe380df341afe8c5f0c0510e7, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -2212,6 +2216,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: UnActiveSettingPopUp
       objectReference: {fileID: 0}
+    - target: {fileID: 3392564566667299957, guid: 6ec3382fe380df341afe8c5f0c0510e7, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -39.80005
+      objectReference: {fileID: 0}
     - target: {fileID: 7080521897638950240, guid: 6ec3382fe380df341afe8c5f0c0510e7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -2219,6 +2227,10 @@ PrefabInstance:
     - target: {fileID: 7080521897638950240, guid: 6ec3382fe380df341afe8c5f0c0510e7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ShakeBox
+      objectReference: {fileID: 0}
+    - target: {fileID: 7135988728972559539, guid: 6ec3382fe380df341afe8c5f0c0510e7, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -16.9
       objectReference: {fileID: 0}
     - target: {fileID: 8760493658377461416, guid: 6ec3382fe380df341afe8c5f0c0510e7, type: 3}
       propertyPath: m_Pivot.x
@@ -2299,6 +2311,10 @@ PrefabInstance:
     - target: {fileID: 8760493658377461416, guid: 6ec3382fe380df341afe8c5f0c0510e7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8778693564422434404, guid: 6ec3382fe380df341afe8c5f0c0510e7, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -39.80005
       objectReference: {fileID: 0}
     - target: {fileID: 9110907151348410548, guid: 6ec3382fe380df341afe8c5f0c0510e7, type: 3}
       propertyPath: m_Name
@@ -2943,6 +2959,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1942951526}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1931907278 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1047425217428542774, guid: 6ec3382fe380df341afe8c5f0c0510e7, type: 3}
+  m_PrefabInstance: {fileID: 1557350209}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1942951524
 GameObject:
   m_ObjectHideFlags: 0
@@ -3558,6 +3579,18 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 871356099}
     - target: {fileID: 4112511350823193049, guid: 4867d851a61b855498d1b586e59a0555, type: 3}
+      propertyPath: maxRotate
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4112511350823193049, guid: 4867d851a61b855498d1b586e59a0555, type: 3}
+      propertyPath: minRotate
+      value: -25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4112511350823193049, guid: 4867d851a61b855498d1b586e59a0555, type: 3}
+      propertyPath: StartImage
+      value: 
+      objectReference: {fileID: 1931907278}
+    - target: {fileID: 4112511350823193049, guid: 4867d851a61b855498d1b586e59a0555, type: 3}
       propertyPath: boxParents
       value: 
       objectReference: {fileID: 2031588726}
@@ -3565,6 +3598,10 @@ PrefabInstance:
       propertyPath: SettingPanel
       value: 
       objectReference: {fileID: 1514159196}
+    - target: {fileID: 4112511350823193049, guid: 4867d851a61b855498d1b586e59a0555, type: 3}
+      propertyPath: boxRotationSpeed
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 7489659462063862345, guid: 4867d851a61b855498d1b586e59a0555, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.41945356
