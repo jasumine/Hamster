@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private SpriteRenderer nowJelly;
     [SerializeField] private SpriteRenderer nextJelly;
 
+    [SerializeField] private GameObject gameOverBox;
+
     public bool ismove = true;
     public int score = 0;
 
@@ -32,6 +34,7 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         PushJelly();
+        CheckDeadLine();
     }
 
     private void PushJelly()
@@ -125,5 +128,29 @@ public class GameManager : MonoBehaviour
         score += sum;
 
         ui.ShowScore(score);
+    }
+
+    private void CheckDeadLine()
+    {
+        if(!isdelay)
+        {
+            Collider2D[] colliders = Physics2D.OverlapBoxAll(gameOverBox.transform.position, gameOverBox.transform.localScale,0);
+
+            for (int i = 0; i < colliders.Length; i++)
+            {
+                if (colliders[i].gameObject.tag == "Jelly")
+                {
+                    Debug.Log("게임오버");
+                }
+            }
+        }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawCube(gameOverBox.transform.position, gameOverBox.transform.localScale);
+
+
     }
 }

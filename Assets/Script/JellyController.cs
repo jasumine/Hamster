@@ -132,7 +132,7 @@ public class JellyController : MonoBehaviour
     {
         // object의 위치에 다음단계의 젤리를 생성하고, 점수 갱신, 삭제
         checkCollision = true;
-        Vector2 pos = new Vector2(x, y + 1f);
+        Vector2 pos = new Vector2(x, y);
         quaternion quaternion = quaternion.identity;
         if(nextJelly != null)
         {

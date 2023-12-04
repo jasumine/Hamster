@@ -9,13 +9,14 @@ public class UIManager : MonoBehaviour
 {
     public TextMeshProUGUI scoreTXT;
     public GameObject SettingPanel;
+    public GameObject StartImage;
 
     public GameObject boxParents;
     public float boxRotationSpeed;
     public float maxRotate;
     public float minRotate;
 
-    private bool isShake;
+    public bool isShake;
 
     void Start()
     {
@@ -27,6 +28,14 @@ public class UIManager : MonoBehaviour
     {
         scoreTXT.text = score.ToString();
     }
+
+    public void TouchToStart()
+    {
+        StartImage.SetActive(false);
+    }
+
+    
+
 
     // 버튼을 이용해서 실행
     public void ShakeBox()
@@ -70,12 +79,12 @@ public class UIManager : MonoBehaviour
 
     public void ActiveSettingPopUp()
     {
-        SettingPanel.active = true;
+        SettingPanel.SetActive(true);
     }
 
     public void UnActiveSettingPopUp()
     {
-        SettingPanel.active = false;
+        SettingPanel.SetActive(false);
     }
 
 

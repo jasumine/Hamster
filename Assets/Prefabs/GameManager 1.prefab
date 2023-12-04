@@ -46,12 +46,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jellys:
-  - {fileID: 6240513540363481005, guid: c7d77b2d352dda74eb1c226ac1293a1a, type: 3}
-  - {fileID: 101064271278691850, guid: 7119ea97736d3fc4a8e77d215237389b, type: 3}
-  - {fileID: 3323199018001869564, guid: 3260c975af790a34ab92d22b373cf067, type: 3}
-  - {fileID: 6411676507386821544, guid: 29ef0dd573be2da49a24e7e9359279d2, type: 3}
+  - {fileID: 6682415242176924312, guid: 0bfe4aa1ce4e53c47b2c0b2e50c6627e, type: 3}
+  - {fileID: 2236212463772520743, guid: a3f9a64d8d6afa948a095c232efce3e5, type: 3}
+  - {fileID: 8923021846468283549, guid: 8e6566e643482ba4ebe8fbd51f553b40, type: 3}
   - {fileID: 2138107759011125086, guid: e91108df31019464383e74a4fb624059, type: 3}
-  - {fileID: 1101795159292160992, guid: 7946d087b925f1b4982e780cb8679918, type: 3}
+  - {fileID: 3293303568117981698, guid: b0590233e25627c43bccb907a1f219c4, type: 3}
+  - {fileID: 2721478405707345578, guid: b04b86506d7f283468d4f88f33b0bacd, type: 3}
   nowJelly: {fileID: 0}
   nextJelly: {fileID: 0}
   ismove: 1
@@ -71,4 +71,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreTXT: {fileID: 0}
+  SettingPanel: {fileID: 0}
   boxParents: {fileID: 0}
+  boxRotationSpeed: 0
+  maxRotate: 0
+  minRotate: 0
