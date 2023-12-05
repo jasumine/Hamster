@@ -32,7 +32,6 @@ public class UIManager : MonoBehaviour
     void Start()
     {
         isShake = false;
-        ShowScore(0);
         currentPage = 0;
 
         StartImage.SetActive(true);
@@ -172,7 +171,6 @@ public class UIManager : MonoBehaviour
 
     public void ReStartGame()
     {
-        Time.timeScale = 1.0f;
         SceneManager.LoadScene(0);
     }
 

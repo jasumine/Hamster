@@ -1,13 +1,18 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.UI;
 using static UnityEditor.ShaderGraph.Internal.KeywordDependentCollection;
 
 public class GameManager : MonoBehaviour
 {
+    public List<GameObject> gameSceneList;
+
+
     [SerializeField] private GameObject[] jellys;
     [SerializeField] private SpriteRenderer nowJelly;
     [SerializeField] private SpriteRenderer nextJelly;
@@ -25,6 +30,7 @@ public class GameManager : MonoBehaviour
     public bool isEnd = false;
 
     private UIManager ui;
+    private SheetsManager sheetsManager;
 
     private void Start()
     {
@@ -32,7 +38,10 @@ public class GameManager : MonoBehaviour
         nowJelly = nowJelly.GetComponent<SpriteRenderer>();
         nextJelly = nextJelly.GetComponent<SpriteRenderer>();
         ui = gameObject.GetComponent<UIManager>();
+        sheetsManager = gameObject.GetComponent<SheetsManager>();
         InitJelly();
+
+        StartCoroutine(RankData());
     }
 
     private void Update()
@@ -63,6 +72,8 @@ public class GameManager : MonoBehaviour
                     quaternion rotation = quaternion.identity;
 
                     Instantiate(jellys[nowJellyNum], newPos, rotation);
+
+                    SetScore(nowJellyNum);
 
                     nowJelly.sprite = null;
                     SetNowJelly();
@@ -154,11 +165,23 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private IEnumerator RankData()
+    {
+        yield return StartCoroutine(sheetsManager.PostData("playerid", "playername", score, 60));
+
+        yield return StartCoroutine(sheetsManager.GetData());
+    }
+
+
+    //private IEnumerator DataLoaditng()
+    //{
+    //    yield return StartCoroutine(sheetsManager.WriteData("playerid", "playername", score, 60));
+    //}
+
+
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;
         Gizmos.DrawCube(gameOverBox.transform.position, gameOverBox.transform.localScale);
-
-
     }
 }

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7489659462063862345}
   - component: {fileID: 9088391775444124121}
   - component: {fileID: 4112511350823193049}
+  - component: {fileID: 6268471085454163040}
   m_Layer: 0
   m_Name: GameManager 1
   m_TagString: Untagged
@@ -45,6 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1e285835cfa8084cb013b0704a7676b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameSceneList: []
   jellys:
   - {fileID: 6682415242176924312, guid: 0bfe4aa1ce4e53c47b2c0b2e50c6627e, type: 3}
   - {fileID: 2236212463772520743, guid: a3f9a64d8d6afa948a095c232efce3e5, type: 3}
@@ -54,10 +56,12 @@ MonoBehaviour:
   - {fileID: 2721478405707345578, guid: b04b86506d7f283468d4f88f33b0bacd, type: 3}
   nowJelly: {fileID: 0}
   nextJelly: {fileID: 0}
+  gameOverBox: {fileID: 0}
   ismove: 1
   score: 0
   delayTime: 0
   isdelay: 0
+  isEnd: 0
 --- !u!114 &4112511350823193049
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -71,8 +75,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreTXT: {fileID: 0}
+  RankPanel: {fileID: 0}
+  InfoPanel: {fileID: 0}
+  infoImages: []
+  infoText: []
+  currentPage: 0
   SettingPanel: {fileID: 0}
+  StartImage: {fileID: 0}
+  EndImage: {fileID: 0}
   boxParents: {fileID: 0}
   boxRotationSpeed: 0
   maxRotate: 0
   minRotate: 0
+  isShake: 0
+--- !u!114 &6268471085454163040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1901926785725162356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0b0b5c1fe3e99f428d5ff1e03a32c47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
