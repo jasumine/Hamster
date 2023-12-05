@@ -4,6 +4,7 @@ using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEditor.ShaderGraph.Internal.KeywordDependentCollection;
 
 public class GameManager : MonoBehaviour
 {
@@ -21,10 +22,13 @@ public class GameManager : MonoBehaviour
     private int nowJellyNum;
     private int nextJellyNum;
 
+    public bool isEnd = false;
+
     private UIManager ui;
 
     private void Start()
     {
+        Time.timeScale = 1;
         nowJelly = nowJelly.GetComponent<SpriteRenderer>();
         nextJelly = nextJelly.GetComponent<SpriteRenderer>();
         ui = gameObject.GetComponent<UIManager>();
@@ -141,6 +145,10 @@ public class GameManager : MonoBehaviour
                 if (colliders[i].gameObject.tag == "Jelly")
                 {
                     Debug.Log("게임오버");
+                    isEnd = true;
+                    
+                    Time.timeScale = 0;
+                    ui.EndImage.SetActive(true);
                 }
             }
         }

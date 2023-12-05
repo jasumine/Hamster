@@ -4,12 +4,23 @@ using TMPro;
 using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
     public TextMeshProUGUI scoreTXT;
+
+    public GameObject RankPanel;
+
+    public GameObject InfoPanel;
+    public Image[] infoImages;
+    public TextMeshProUGUI[] infoText;
+    public int currentPage;
+
     public GameObject SettingPanel;
     public GameObject StartImage;
+    public GameObject EndImage;
 
     public GameObject boxParents;
     public float boxRotationSpeed;
@@ -22,6 +33,10 @@ public class UIManager : MonoBehaviour
     {
         isShake = false;
         ShowScore(0);
+        currentPage = 0;
+
+        StartImage.SetActive(true);
+        EndImage.SetActive(false);
     }
 
     public void ShowScore(int score)
@@ -76,6 +91,75 @@ public class UIManager : MonoBehaviour
         isShake = false;
     }
 
+    public void ActiveRankPopUp()
+    {
+        RankPanel.SetActive(true);
+    }
+    public void UnActiveRankPopUp()
+    {
+        RankPanel.SetActive(false);
+    }
+
+
+    public void ActiveInfoPopUP()
+    {
+        InfoPanel.SetActive(true);
+    }
+
+    public void UnActiveInfoPopUP()
+    {
+        InfoPanel.SetActive(false);
+    }
+
+    public void MoveBeforeInfoPage()
+    {
+        if (currentPage > 0 && currentPage <= infoImages.Length-1)
+        {
+            currentPage--;
+            for(int i =0; i<infoImages.Length; i++)
+            {
+                if(i==currentPage)
+                {
+                    infoImages[i].gameObject.SetActive(true);
+                    infoText[i].color = new Color32(121, 226, 181, 255);
+                }
+                else
+                {
+                    infoImages[i].gameObject.SetActive(false);
+                    infoText[i].color = new Color32(205, 231, 220, 255);
+                }
+            }
+        }
+        else
+        {
+            return;
+        }
+    }
+    public void MoveAfterInfoPage()
+    {
+        if (currentPage >= 0 && currentPage < infoImages.Length-1 )
+        {
+            currentPage++;
+            for (int i = 0; i < infoImages.Length; i++)
+            {
+                if (i == currentPage)
+                {
+                    infoImages[i].gameObject.SetActive(true);
+                    infoText[i].color = new Color32(121, 226, 181, 255);
+                }
+                else
+                {
+                    infoImages[i].gameObject.SetActive(false);
+                    infoText[i].color = new Color32(205,231,220,255);
+                }
+            }
+        }
+        else
+        {
+            return;
+        }
+    }
+
     public void ActiveSettingPopUp()
     {
         SettingPanel.SetActive(true);
@@ -86,6 +170,15 @@ public class UIManager : MonoBehaviour
         SettingPanel.SetActive(false);
     }
 
+    public void ReStartGame()
+    {
+        Time.timeScale = 1.0f;
+        SceneManager.LoadScene(0);
+    }
 
+    public void ExitGame()
+    {
+        Application.Quit();
+    }
 
 }

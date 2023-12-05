@@ -11,7 +11,7 @@ public class JellyController : MonoBehaviour
     // 다음 단계의 젤리
     public GameObject nextJelly;
     public Sprite jellyImage;
-    public Sprite EndJellyImage;
+    public Sprite jellyImageEnd;
 
     public int level;
     private bool checkCollision = false;
@@ -23,18 +23,14 @@ public class JellyController : MonoBehaviour
 
     private void Start()
     {
+
         gameManager = FindAnyObjectByType<GameManager>();
     }
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.G)) 
-        {
-            SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
-            spriteRenderer.sprite = EndJellyImage;
-        }
-
-       CheckOverlap();
+        CheckOverlap();
+        SetEndImage();
     }
 
     //private void OnCollisionEnter2D(Collision2D collision)
@@ -143,6 +139,19 @@ public class JellyController : MonoBehaviour
 
         Destroy(gameObject);
     }
+
+    private void SetEndImage()
+    {
+        if(gameManager.isEnd==true)
+        {
+            SpriteRenderer spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+
+            spriteRenderer.sprite = jellyImageEnd;
+
+        }
+    }
+
+
 
     private void OnDrawGizmos()
     {
