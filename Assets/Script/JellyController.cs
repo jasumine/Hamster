@@ -23,7 +23,6 @@ public class JellyController : MonoBehaviour
 
     private void Start()
     {
-
         gameManager = FindAnyObjectByType<GameManager>();
     }
 
@@ -135,8 +134,8 @@ public class JellyController : MonoBehaviour
             Instantiate(nextJelly, pos, quaternion);
         }
 
-       gameManager.SetScore(level);
-
+        gameManager.SetScore(level);
+    
         Destroy(gameObject);
     }
 

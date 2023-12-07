@@ -12,7 +12,6 @@ public class GameManager : MonoBehaviour
 {
     public List<GameObject> gameSceneList;
 
-
     [SerializeField] private GameObject[] jellys;
     [SerializeField] private SpriteRenderer nowJelly;
     [SerializeField] private SpriteRenderer nextJelly;
@@ -72,6 +71,8 @@ public class GameManager : MonoBehaviour
                     quaternion rotation = quaternion.identity;
 
                     Instantiate(jellys[nowJellyNum], newPos, rotation);
+                    AudioSource dropEffectSound = GetComponent<AudioSource>();
+                    dropEffectSound.Play();
 
                     SetScore(nowJellyNum);
 
@@ -103,7 +104,6 @@ public class GameManager : MonoBehaviour
             LandNextJelly();
         }
         else return;
-
     }
 
     private void LandNextJelly()
