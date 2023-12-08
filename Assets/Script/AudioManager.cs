@@ -4,15 +4,26 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] AudioSource bgmSource;
+    [SerializeField] AudioSource effectSource;
+
+    public AudioClip[] audioList;
+
+    public void SetAudio(string _name)
     {
-        
+        int index = 0;
+        switch (_name)
+        {
+            case "Drop": index = 0; break;
+            case "Merge": index = 1; break;
+            case "Button": index = 2; break;
+            case "Thunder": index = 3; break;
+            case "Over": index = 4; break;
+            case "Box": index = 5; break;
+        }
+
+        effectSource.clip = audioList[index];
+        effectSource.Play();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

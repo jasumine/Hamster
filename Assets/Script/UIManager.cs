@@ -29,6 +29,8 @@ public class UIManager : MonoBehaviour
 
     public bool isShake;
 
+    GameManager gameManager = FindObjectOfType<GameManager>();
+
     void Start()
     {
         isShake = false;
@@ -62,6 +64,7 @@ public class UIManager : MonoBehaviour
     }
     IEnumerator ShakeBoxZ()
     {
+        gameManager.audioManager.SetAudio("Box");
         isShake = true;
 
         float z = 0;
@@ -93,25 +96,30 @@ public class UIManager : MonoBehaviour
     public void ActiveRankPopUp()
     {
         RankPanel.SetActive(true);
+        gameManager.audioManager.SetAudio("Button");
     }
     public void UnActiveRankPopUp()
     {
         RankPanel.SetActive(false);
+        gameManager.audioManager.SetAudio("Button");
     }
 
 
     public void ActiveInfoPopUP()
     {
         InfoPanel.SetActive(true);
+        gameManager.audioManager.SetAudio("Button");
     }
 
     public void UnActiveInfoPopUP()
     {
         InfoPanel.SetActive(false);
+        gameManager.audioManager.SetAudio("Button");
     }
 
     public void MoveBeforeInfoPage()
     {
+        gameManager.audioManager.SetAudio("Button");
         if (currentPage > 0 && currentPage <= infoImages.Length-1)
         {
             currentPage--;
@@ -136,6 +144,7 @@ public class UIManager : MonoBehaviour
     }
     public void MoveAfterInfoPage()
     {
+        gameManager.audioManager.SetAudio("Button");
         if (currentPage >= 0 && currentPage < infoImages.Length-1 )
         {
             currentPage++;
@@ -162,16 +171,20 @@ public class UIManager : MonoBehaviour
     public void ActiveSettingPopUp()
     {
         SettingPanel.SetActive(true);
+        gameManager.audioManager.SetAudio("Button");
     }
 
     public void UnActiveSettingPopUp()
     {
         SettingPanel.SetActive(false);
+        gameManager.audioManager.SetAudio("Button");
     }
 
     public void ReStartGame()
     {
+        gameManager.audioManager.SetAudio("Button");
         SceneManager.LoadScene(0);
+
     }
 
     public void ExitGame()

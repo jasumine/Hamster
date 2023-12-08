@@ -30,6 +30,7 @@ public class GameManager : MonoBehaviour
 
     private UIManager ui;
     private SheetsManager sheetsManager;
+    public AudioManager audioManager;
 
     private void Start()
     {
@@ -38,6 +39,7 @@ public class GameManager : MonoBehaviour
         nextJelly = nextJelly.GetComponent<SpriteRenderer>();
         ui = gameObject.GetComponent<UIManager>();
         sheetsManager = gameObject.GetComponent<SheetsManager>();
+        
         InitJelly();
 
         StartCoroutine(RankData());
@@ -71,8 +73,7 @@ public class GameManager : MonoBehaviour
                     quaternion rotation = quaternion.identity;
 
                     Instantiate(jellys[nowJellyNum], newPos, rotation);
-                    AudioSource dropEffectSound = GetComponent<AudioSource>();
-                    dropEffectSound.Play();
+                    audioManager.SetAudio("Drop");
 
                     SetScore(nowJellyNum);
 
@@ -157,7 +158,8 @@ public class GameManager : MonoBehaviour
                 {
                     Debug.Log("게임오버");
                     isEnd = true;
-                    
+
+                    audioManager.SetAudio("Over");
                     Time.timeScale = 0;
                     ui.EndImage.SetActive(true);
                 }

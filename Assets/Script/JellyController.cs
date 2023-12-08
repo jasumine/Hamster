@@ -129,14 +129,22 @@ public class JellyController : MonoBehaviour
         checkCollision = true;
         Vector2 pos = new Vector2(x, y);
         quaternion quaternion = quaternion.identity;
-        if(nextJelly != null)
+        if (nextJelly != null)
         {
             Instantiate(nextJelly, pos, quaternion);
-        }
+            gameManager.audioManager.SetAudio("Merge");
 
-        gameManager.SetScore(level);
-    
-        Destroy(gameObject);
+            gameManager.SetScore(level);
+
+            Destroy(gameObject);
+        }
+        else
+        {
+            gameManager.audioManager.SetAudio("Thunder");
+            gameManager.SetScore(level);
+
+            Destroy(gameObject);
+        }
     }
 
     private void SetEndImage()
