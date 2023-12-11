@@ -20,10 +20,21 @@ public class AudioManager : MonoBehaviour
             case "Thunder": index = 3; break;
             case "Over": index = 4; break;
             case "Box": index = 5; break;
+            case "Exit": index = 6; break;
         }
 
         effectSource.clip = audioList[index];
         effectSource.Play();
+    }
+
+    public void SetBGM(float _value)
+    {
+        bgmSource.volume += _value;
+    }
+
+    public void SetSFX(float _value)
+    {
+        effectSource.volume += _value;
     }
 
 }

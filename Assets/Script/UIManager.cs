@@ -29,12 +29,18 @@ public class UIManager : MonoBehaviour
 
     public bool isShake;
 
-    GameManager gameManager = FindObjectOfType<GameManager>();
+    public Image bgmImage;
+    public Image SFXImage;
+
+
+    GameManager gameManager;
 
     void Start()
     {
         isShake = false;
         currentPage = 0;
+
+        gameManager = GetComponent<GameManager>();
 
         StartImage.SetActive(true);
         EndImage.SetActive(false);
@@ -101,7 +107,7 @@ public class UIManager : MonoBehaviour
     public void UnActiveRankPopUp()
     {
         RankPanel.SetActive(false);
-        gameManager.audioManager.SetAudio("Button");
+        gameManager.audioManager.SetAudio("Exit");
     }
 
 
@@ -114,7 +120,7 @@ public class UIManager : MonoBehaviour
     public void UnActiveInfoPopUP()
     {
         InfoPanel.SetActive(false);
-        gameManager.audioManager.SetAudio("Button");
+        gameManager.audioManager.SetAudio("Exit");
     }
 
     public void MoveBeforeInfoPage()
@@ -177,12 +183,37 @@ public class UIManager : MonoBehaviour
     public void UnActiveSettingPopUp()
     {
         SettingPanel.SetActive(false);
-        gameManager.audioManager.SetAudio("Button");
+        gameManager.audioManager.SetAudio("EXIT");
     }
+
+    public void DecreaseBGMVolume()
+    {
+        gameManager.audioManager.SetBGM(-0.1f);
+        bgmImage.fillAmount -= 0.1f;
+    }
+    public void IncreaseBGMVolume()
+    {
+        gameManager.audioManager.SetBGM(0.1f);
+        bgmImage.fillAmount += -0.1f;
+    }
+
+    public void DecreaseSFXVolume()
+    {
+        gameManager.audioManager.SetSFX(-0.1f);
+        SFXImage.fillAmount += -0.1f;
+    }
+
+    public void IncreaseSFXVolume()
+    {
+        gameManager.audioManager.SetSFX(0.1f);
+        SFXImage.fillAmount +=0.1f;
+    }
+
+
 
     public void ReStartGame()
     {
-        gameManager.audioManager.SetAudio("Button");
+        gameManager.audioManager.SetAudio("EXIT");
         SceneManager.LoadScene(0);
 
     }
