@@ -17,6 +17,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private SpriteRenderer nowJelly;
     [SerializeField] private SpriteRenderer nextJelly;
 
+    public ParticleSystem thunderEffect;
+    public GameObject glovalVolume;
+
     [SerializeField] private GameObject gameOverBox;
 
     public bool ismove = true;

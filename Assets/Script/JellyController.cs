@@ -5,6 +5,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 
 using UnityEngine.UI;
+using static UnityEditor.PlayerSettings;
 
 public class JellyController : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class JellyController : MonoBehaviour
     public GameObject nextJelly;
     public Sprite jellyImage;
     public Sprite jellyImageEnd;
+
 
     public int level;
     private bool checkCollision = false;
@@ -131,11 +133,7 @@ public class JellyController : MonoBehaviour
         quaternion quaternion = quaternion.identity;
         if (level==9)
         {
-            Instantiate(nextJelly, pos, quaternion);
-            gameManager.audioManager.SetAudio("Thunder");
-            gameManager.SetScore(level);
-
-            Destroy(gameObject);
+           StartCoroutine(ThunderSquirrel(pos,quaternion));
         }
         else if(nextJelly != null)
         {
@@ -165,6 +163,26 @@ public class JellyController : MonoBehaviour
 
         }
     }
+
+    IEnumerator ThunderSquirrel(Vector2 _pos, Quaternion _quaternion)
+    {
+        gameManager.audioManager.SetAudio("Thunder");
+        gameManager.glovalVolume.SetActive(true);
+        gameManager.thunderEffect.gameObject.SetActive(true);
+        gameManager.thunderEffect.Play();
+        SpriteRenderer spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+        spriteRenderer.sprite = null;
+
+        yield return new WaitForSeconds(0.7f);
+
+        Instantiate(nextJelly, _pos, _quaternion);
+        gameManager.SetScore(level);
+
+        gameManager.glovalVolume.SetActive(false);
+        gameManager.thunderEffect.gameObject.SetActive(false);  
+        Destroy(gameObject);
+    }
+
 
 
 
