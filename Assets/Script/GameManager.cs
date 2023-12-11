@@ -1,12 +1,13 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Net.Sockets;
+using TMPro;
 using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.UI;
-using static UnityEditor.ShaderGraph.Internal.KeywordDependentCollection;
 
 public class GameManager : MonoBehaviour
 {
@@ -27,6 +28,9 @@ public class GameManager : MonoBehaviour
     private int nextJellyNum;
 
     public bool isEnd = false;
+    public TextMeshProUGUI[] rankScoreTexts;
+
+
 
     private UIManager ui;
     private SheetsManager sheetsManager;
@@ -38,11 +42,17 @@ public class GameManager : MonoBehaviour
         nowJelly = nowJelly.GetComponent<SpriteRenderer>();
         nextJelly = nextJelly.GetComponent<SpriteRenderer>();
         ui = gameObject.GetComponent<UIManager>();
-        sheetsManager = gameObject.GetComponent<SheetsManager>();
+       // sheetsManager = gameObject.GetComponent<SheetsManager>();
         
         InitJelly();
 
-        StartCoroutine(RankData());
+        //PlayerPrefs.SetInt("ThirdScore", 0);
+        //PlayerPrefs.SetInt("SecondScore",0);
+        //PlayerPrefs.SetInt("FirstScore", 0);
+
+        LoadScorce();
+
+       // StartCoroutine(RankData());
     }
 
     private void Update()
@@ -100,6 +110,7 @@ public class GameManager : MonoBehaviour
         if (nowJelly.sprite == null)
         {
             nowJellyNum = nextJellyNum;
+            nowJelly.gameObject.transform.localScale = nextJelly.gameObject.transform.localScale;
             nowJelly.sprite = nextJelly.sprite;
             nextJelly.sprite = null;
             LandNextJelly();
@@ -112,6 +123,8 @@ public class GameManager : MonoBehaviour
         if (nextJelly.sprite == null)
         {
             nextJellyNum = UnityEngine.Random.Range(0, jellys.Length);
+
+            nextJelly.gameObject.transform.localScale = jellys[nextJellyNum].gameObject.transform.localScale;
             JellyController jelly = jellys[nextJellyNum].GetComponent<JellyController>();
 
             nextJelly.sprite = jelly.jellyImage;
@@ -167,12 +180,72 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private IEnumerator RankData()
-    {
-        yield return StartCoroutine(sheetsManager.PostData("playerid", "playername", score, 60));
 
-        yield return StartCoroutine(sheetsManager.GetData());
+    public void Save()
+    {
+        Debug.Log(score);
+
+        if (score <= PlayerPrefs.GetInt("FirstScore"))
+        {
+            if (score <= PlayerPrefs.GetInt("SecondScore"))
+            {
+                if (score <= PlayerPrefs.GetInt("ThirdScore"))
+                {
+                    // 내 점수가 3등보다 높을 경우(2등과 같을 경우 포함)
+                    // 새로운 점수를 넣는다.
+                    PlayerPrefs.SetInt("ThirdScore", score);
+                    PlayerPrefs.Save();
+                    return;
+                }
+                else
+                {
+                    return;
+                }
+
+            }
+            else
+            {
+                // 내 점수가 2등보다 높을 경우 (1등과 같을 경우도 포함)
+                // 3등엔 2등점수를, 2등엔 새로운 점수
+                PlayerPrefs.SetInt("ThirdScore", PlayerPrefs.GetInt("SecondScore"));
+                PlayerPrefs.SetInt("SecondScore", score);
+                PlayerPrefs.Save();
+                return;
+            }
+        }
+        else
+        {
+            // 내 점수가 1등보다 높을 경우
+            // 3등엔 2등점수를, 2등엔 1등점수를, 1등엔 새로운 점수
+            PlayerPrefs.SetInt("ThirdScore", PlayerPrefs.GetInt("SecondScore"));
+            PlayerPrefs.SetInt("SecondScore", PlayerPrefs.GetInt("FirstScore"));
+            PlayerPrefs.SetInt("FirstScore", score);
+            PlayerPrefs.Save();
+            return;
+        }
+
+
+
     }
+
+
+    private void LoadScorce()
+    {
+        rankScoreTexts[0].text = PlayerPrefs.GetInt("FirstScore").ToString();
+        rankScoreTexts[1].text = PlayerPrefs.GetInt("SecondScore").ToString();
+        rankScoreTexts[2].text = PlayerPrefs.GetInt("ThirdScore").ToString();
+    }
+
+
+
+
+
+    //private IEnumerator RankData()
+    //{
+    //    yield return StartCoroutine(sheetsManager.PostData("playerid", "playername", score, 60));
+
+    //    yield return StartCoroutine(sheetsManager.GetData());
+    //}
 
 
     //private IEnumerator DataLoaditng()

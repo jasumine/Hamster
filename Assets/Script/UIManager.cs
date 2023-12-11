@@ -189,12 +189,12 @@ public class UIManager : MonoBehaviour
     public void DecreaseBGMVolume()
     {
         gameManager.audioManager.SetBGM(-0.1f);
-        bgmImage.fillAmount -= 0.1f;
+        bgmImage.fillAmount += -0.1f;
     }
     public void IncreaseBGMVolume()
     {
         gameManager.audioManager.SetBGM(0.1f);
-        bgmImage.fillAmount += -0.1f;
+        bgmImage.fillAmount += 0.1f;
     }
 
     public void DecreaseSFXVolume()
@@ -214,12 +214,14 @@ public class UIManager : MonoBehaviour
     public void ReStartGame()
     {
         gameManager.audioManager.SetAudio("EXIT");
+        gameManager.Save();
         SceneManager.LoadScene(0);
 
     }
 
     public void ExitGame()
     {
+        gameManager.Save();
         Application.Quit();
     }
 
