@@ -327,6 +327,7 @@ GameObject:
   - component: {fileID: 519420031}
   - component: {fileID: 519420034}
   - component: {fileID: 519420035}
+  - component: {fileID: 519420036}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -452,6 +453,18 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
+--- !u!114 &519420036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cd1479151fc6f94cbbe2ca4cb0fc3c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &520724229 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5928658092271021833, guid: 6ec3382fe380df341afe8c5f0c0510e7, type: 3}
@@ -784,7 +797,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df854a563ddb5d142973747f1f184fec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 0.3
+  moveSpeed: 1
   maxXPos: 3
   minXPos: -2.8
 --- !u!4 &882383118
@@ -1509,6 +1522,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ActiveSettingPopUp
       objectReference: {fileID: 0}
+    - target: {fileID: 2068383947448960802, guid: 6ec3382fe380df341afe8c5f0c0510e7, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -79.000244
+      objectReference: {fileID: 0}
     - target: {fileID: 2097782687287985691, guid: 6ec3382fe380df341afe8c5f0c0510e7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -1752,6 +1769,10 @@ PrefabInstance:
     - target: {fileID: 6580559848005319983, guid: 6ec3382fe380df341afe8c5f0c0510e7, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -50
+      objectReference: {fileID: 0}
+    - target: {fileID: 6838678978600156758, guid: 6ec3382fe380df341afe8c5f0c0510e7, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -79.000244
       objectReference: {fileID: 0}
     - target: {fileID: 6859989036014379617, guid: 6ec3382fe380df341afe8c5f0c0510e7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -2658,6 +2679,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9088391775444124121, guid: 4867d851a61b855498d1b586e59a0555, type: 3}
+      propertyPath: camera
+      value: 
+      objectReference: {fileID: 519420031}
+    - target: {fileID: 9088391775444124121, guid: 4867d851a61b855498d1b586e59a0555, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 882383116}
+    - target: {fileID: 9088391775444124121, guid: 4867d851a61b855498d1b586e59a0555, type: 3}
       propertyPath: nowJelly
       value: 
       objectReference: {fileID: 1920295498}
@@ -2669,6 +2698,10 @@ PrefabInstance:
       propertyPath: nextJelly
       value: 
       objectReference: {fileID: 2056315766}
+    - target: {fileID: 9088391775444124121, guid: 4867d851a61b855498d1b586e59a0555, type: 3}
+      propertyPath: playerYPos
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9088391775444124121, guid: 4867d851a61b855498d1b586e59a0555, type: 3}
       propertyPath: gameOverBox
       value: 

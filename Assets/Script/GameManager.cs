@@ -34,7 +34,10 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI[] rankScoreTexts;
 
 
-
+    private Vector2 MousePosition;
+    [SerializeField] private Camera camera;
+    [SerializeField] private GameObject player;
+    [SerializeField] private float playerYPos;
     private UIManager ui;
     private SheetsManager sheetsManager;
     public AudioManager audioManager;
@@ -74,28 +77,43 @@ public class GameManager : MonoBehaviour
                 if (Input.GetMouseButtonDown(0))
                 {
                     // 마우스의 x좌표를 받아와서 player의 위치를 x로 옮기고 push
+                    MousePosition = Input.mousePosition;
+                    MousePosition = camera.ScreenToWorldPoint(MousePosition);
+
+       
+                    float mouseX = MousePosition.x;
+                    player.gameObject.transform.position = new Vector2(mouseX, playerYPos);
+
+
+                    DropJelly();
                 }
                 // 스페이스바를 눌렀다면
                 if (Input.GetKeyDown(KeyCode.Space))
                 {
-                    CoolDownDelay();
-                    // player의 x좌표에 push
-                    float x = nowJelly.transform.position.x;
-                    float y = nowJelly.transform.position.y;
-                    Vector3 newPos = new Vector3(x, y, 0);
-                    quaternion rotation = quaternion.identity;
-
-                    Instantiate(jellys[nowJellyNum], newPos, rotation);
-                    audioManager.SetAudio("Drop");
-
-                    SetScore(nowJellyNum);
-
-                    nowJelly.sprite = null;
-                    SetNowJelly();
+                    DropJelly();
                 }
             }
         }
     }
+
+    private void DropJelly()
+    {
+        CoolDownDelay();
+        // player의 x좌표에 push
+        float x = nowJelly.transform.position.x;
+        float y = nowJelly.transform.position.y;
+        Vector3 newPos = new Vector3(x, y, 0);
+        quaternion rotation = quaternion.identity;
+
+        Instantiate(jellys[nowJellyNum], newPos, rotation);
+        audioManager.SetAudio("Drop");
+
+        SetScore(nowJellyNum);
+
+        nowJelly.sprite = null;
+        SetNowJelly();
+    }
+
 
     private void CoolDownDelay()
     {
