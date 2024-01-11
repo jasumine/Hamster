@@ -5,6 +5,7 @@ using System.Net.Sockets;
 using TMPro;
 using Unity.Mathematics;
 using Unity.VisualScripting;
+using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.UI;
@@ -42,12 +43,36 @@ public class GameManager : MonoBehaviour
     private SheetsManager sheetsManager;
     public AudioManager audioManager;
 
+    private static GameManager instance;
+    private GameManager() { }
+    public static GameManager GetInstance()
+    {
+      
+        if (instance == null)
+        {
+            instance = new GameManager();
+        }
+            return instance;
+    }
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(this.gameObject);
+        }
+        else
+            Destroy(this.gameObject);
+    }
+
     private void Start()
     {
         Time.timeScale = 1;
         nowJelly = nowJelly.GetComponent<SpriteRenderer>();
         nextJelly = nextJelly.GetComponent<SpriteRenderer>();
         ui = gameObject.GetComponent<UIManager>();
+
        // sheetsManager = gameObject.GetComponent<SheetsManager>();
         
         InitJelly();

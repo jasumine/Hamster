@@ -33,14 +33,14 @@ public class UIManager : MonoBehaviour
     public Image SFXImage;
 
 
-    GameManager gameManager;
+   public GameManager gameManager;
 
     void Start()
     {
         isShake = false;
         currentPage = 0;
 
-        gameManager = GetComponent<GameManager>();
+        gameManager = GameManager.GetInstance();
 
         StartImage.SetActive(true);
         EndImage.SetActive(false);

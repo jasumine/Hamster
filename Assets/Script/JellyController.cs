@@ -24,7 +24,7 @@ public class JellyController : MonoBehaviour
 
     private void Start()
     {
-        gameManager = FindAnyObjectByType<GameManager>();
+        gameManager = GameManager.GetInstance();
     }
 
     private void Update()
