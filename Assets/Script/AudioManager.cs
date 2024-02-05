@@ -22,7 +22,6 @@ public class AudioManager : MonoBehaviour
             case "Box": index = 5; break;
             case "Exit": index = 6; break;
         }
-
         effectSource.clip = audioList[index];
         effectSource.Play();
     }

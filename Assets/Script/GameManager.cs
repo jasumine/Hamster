@@ -8,6 +8,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class GameManager : MonoBehaviour
 {
@@ -39,7 +40,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject player;
     [SerializeField] private float playerYPos;
     private UIManager ui;
-    private SheetsManager sheetsManager;
     public AudioManager audioManager;
 
     private static GameManager instance;
@@ -72,8 +72,6 @@ public class GameManager : MonoBehaviour
         nextJelly = nextJelly.GetComponent<SpriteRenderer>();
         ui = gameObject.GetComponent<UIManager>();
 
-       // sheetsManager = gameObject.GetComponent<SheetsManager>();
-        
         InitJelly();
 
         //PlayerPrefs.SetInt("ThirdScore", 0);
@@ -98,19 +96,45 @@ public class GameManager : MonoBehaviour
             if(!isdelay)
             {
                 // 마우스 버튼을 눌렀다면
-                if (Input.GetMouseButtonDown(0))
+                if (Input.GetMouseButtonDown(0) && ui.isShake==false)
                 {
-                    // 마우스의 x좌표를 받아와서 player의 위치를 x로 옮기고 push
-                    MousePosition = Input.mousePosition;
-                    MousePosition = camera.ScreenToWorldPoint(MousePosition);
+                    if (!EventSystem.current.IsPointerOverGameObject())
+                    {
+                        //클릭 처리
+                        // 마우스의 x좌표를 받아와서 player의 위치를 x로 옮기고 push
+                        MousePosition = Input.mousePosition;
+                        MousePosition = camera.ScreenToWorldPoint(MousePosition);
 
-       
-                    float mouseX = MousePosition.x;
-                    player.gameObject.transform.position = new Vector2(mouseX, playerYPos);
+
+                        float mouseX = MousePosition.x;
+                        player.gameObject.transform.position = new Vector2(mouseX, playerYPos);
 
 
-                    DropJelly();
+                        DropJelly();
+                    }
                 }
+
+                // 터치를 했다면
+                if (Input.touchCount > 0 && ui.isShake==false)
+                {
+                    if (!EventSystem.current
+                    .IsPointerOverGameObject(Input.GetTouch(0).fingerId))
+                    {
+                        //터치 처리
+
+                        // 터치의 x좌표를 받아와서 player의 위치를 x로 옮기고 push
+                        MousePosition = Input.GetTouch(0).position;
+                        MousePosition = camera.ScreenToWorldPoint(MousePosition);
+
+
+                        float mouseX = MousePosition.x;
+                        player.gameObject.transform.position = new Vector2(mouseX, playerYPos);
+
+
+                        DropJelly();
+                    }
+                }
+
                 // 스페이스바를 눌렀다면
                 if (Input.GetKeyDown(KeyCode.Space))
                 {
@@ -269,8 +293,6 @@ public class GameManager : MonoBehaviour
             return;
         }
 
-
-
     }
 
 
@@ -280,23 +302,6 @@ public class GameManager : MonoBehaviour
         rankScoreTexts[1].text = PlayerPrefs.GetInt("SecondScore").ToString();
         rankScoreTexts[2].text = PlayerPrefs.GetInt("ThirdScore").ToString();
     }
-
-
-
-
-
-    //private IEnumerator RankData()
-    //{
-    //    yield return StartCoroutine(sheetsManager.PostData("playerid", "playername", score, 60));
-
-    //    yield return StartCoroutine(sheetsManager.GetData());
-    //}
-
-
-    //private IEnumerator DataLoaditng()
-    //{
-    //    yield return StartCoroutine(sheetsManager.WriteData("playerid", "playername", score, 60));
-    //}
 
 
     private void OnDrawGizmos()
