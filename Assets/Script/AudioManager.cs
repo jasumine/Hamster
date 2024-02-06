@@ -6,6 +6,7 @@ public class AudioManager : MonoBehaviour
 {
     [SerializeField] AudioSource bgmSource;
     [SerializeField] AudioSource effectSource;
+    [SerializeField] AudioSource boxShakeSource;
 
     public AudioClip[] audioList;
 
@@ -19,8 +20,7 @@ public class AudioManager : MonoBehaviour
             case "Button": index = 2; break;
             case "Thunder": index = 3; break;
             case "Over": index = 4; break;
-            case "Box": index = 5; break;
-            case "Exit": index = 6; break;
+            case "Exit": index = 5; break;
         }
         effectSource.clip = audioList[index];
         effectSource.Play();
@@ -34,6 +34,19 @@ public class AudioManager : MonoBehaviour
     public void SetSFX(float _value)
     {
         effectSource.volume += _value;
+        boxShakeSource. volume += _value;
+    }
+    public void BgmPlay()
+    {
+        bgmSource.Play();
+    }
+    public void BgmStop()
+    {
+        bgmSource.Stop();
+    }
+    public void BoxAudioPlay()
+    {
+        boxShakeSource.Play();
     }
 
 }

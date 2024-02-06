@@ -71,6 +71,7 @@ public class UIManager : MonoBehaviour
     IEnumerator ShakeBoxZ()
     {
         gameManager.audioManager.SetAudio("Box");
+        gameManager.audioManager.BoxAudioPlay();
         isShake = true;
 
         float z = 0;

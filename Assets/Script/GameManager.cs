@@ -241,6 +241,7 @@ public class GameManager : MonoBehaviour
                     Debug.Log("게임오버");
                     isEnd = true;
 
+                    audioManager.BgmStop();
                     audioManager.SetAudio("Over");
                     Time.timeScale = 0;
                     ui.EndImage.SetActive(true);
