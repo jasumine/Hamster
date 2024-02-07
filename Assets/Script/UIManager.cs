@@ -35,6 +35,7 @@ public class UIManager : MonoBehaviour
 
    public GameManager gameManager;
 
+
     void Start()
     {
         isShake = false;
@@ -210,13 +211,14 @@ public class UIManager : MonoBehaviour
         SFXImage.fillAmount +=0.1f;
     }
 
-
+    public void UnActiveGameOverImage()
+    {
+        EndImage.SetActive(false);
+    }
 
     public void ReStartGame()
     {
-        gameManager.audioManager.SetAudio("EXIT");
-        gameManager.Save();
-        SceneManager.LoadScene(0);
+        gameManager.ReStartGame();
 
     }
 

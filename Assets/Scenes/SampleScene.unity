@@ -304,32 +304,15 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &389325476 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1901926785725162356, guid: 4867d851a61b855498d1b586e59a0555, type: 3}
-  m_PrefabInstance: {fileID: 7667332379711051043}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &430400691 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4112511350823193049, guid: 4867d851a61b855498d1b586e59a0555, type: 3}
   m_PrefabInstance: {fileID: 7667332379711051043}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 389325476}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0155b608dfce6ea4caa91504f6c315f8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &430400695
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 389325476}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57b9744c97986d9469e15873c6e7f2f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &519420028
@@ -487,6 +470,37 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5928658092271021833, guid: 6ec3382fe380df341afe8c5f0c0510e7, type: 3}
   m_PrefabInstance: {fileID: 1564371000}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &522155521
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 522155522}
+  m_Layer: 0
+  m_Name: Jelly Bundle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &522155522
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 522155521}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &532387017
 GameObject:
   m_ObjectHideFlags: 0
@@ -2896,6 +2910,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 905427503}
     - target: {fileID: 9088391775444124121, guid: 4867d851a61b855498d1b586e59a0555, type: 3}
+      propertyPath: jellyBundle
+      value: 
+      objectReference: {fileID: 522155521}
+    - target: {fileID: 9088391775444124121, guid: 4867d851a61b855498d1b586e59a0555, type: 3}
       propertyPath: audioManager
       value: 
       objectReference: {fileID: 2017084969}
@@ -2938,10 +2956,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1901926785725162356, guid: 4867d851a61b855498d1b586e59a0555, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 430400695}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4867d851a61b855498d1b586e59a0555, type: 3}
 --- !u!1001 &9040925102166666910
 PrefabInstance:
@@ -3034,3 +3049,4 @@ SceneRoots:
   - {fileID: 7667332379711051043}
   - {fileID: 1564371000}
   - {fileID: 882383118}
+  - {fileID: 522155522}

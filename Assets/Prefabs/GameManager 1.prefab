@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 7489659462063862345}
   - component: {fileID: 9088391775444124121}
   - component: {fileID: 4112511350823193049}
-  - component: {fileID: 6268471085454163040}
   m_Layer: 0
   m_Name: GameManager 1
   m_TagString: Untagged
@@ -56,12 +55,18 @@ MonoBehaviour:
   - {fileID: 2721478405707345578, guid: b04b86506d7f283468d4f88f33b0bacd, type: 3}
   nowJelly: {fileID: 0}
   nextJelly: {fileID: 0}
+  thunderEffect: {fileID: 0}
+  glovalVolume: {fileID: 0}
   gameOverBox: {fileID: 0}
   ismove: 1
   score: 0
   delayTime: 0
   isdelay: 0
   isEnd: 0
+  rankScoreTexts: []
+  camera: {fileID: 0}
+  player: {fileID: 0}
+  playerYPos: 0
   audioManager: {fileID: 0}
 --- !u!114 &4112511350823193049
 MonoBehaviour:
@@ -89,15 +94,6 @@ MonoBehaviour:
   maxRotate: 0
   minRotate: 0
   isShake: 0
---- !u!114 &6268471085454163040
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1901926785725162356}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a0b0b5c1fe3e99f428d5ff1e03a32c47, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  bgmImage: {fileID: 0}
+  SFXImage: {fileID: 0}
+  gameManager: {fileID: 0}

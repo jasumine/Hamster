@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject[] jellys;
     [SerializeField] private SpriteRenderer nowJelly;
     [SerializeField] private SpriteRenderer nextJelly;
+    public GameObject jellyBundle;
 
     public ParticleSystem thunderEffect;
     public GameObject glovalVolume;
@@ -96,7 +97,7 @@ public class GameManager : MonoBehaviour
             if(!isdelay)
             {
                 // 마우스 버튼을 눌렀다면
-                if (Input.GetMouseButtonDown(0) && ui.isShake==false)
+                if (Input.GetMouseButtonUp(0) && ui.isShake==false)
                 {
                     if (!EventSystem.current.IsPointerOverGameObject())
                     {
@@ -117,21 +118,25 @@ public class GameManager : MonoBehaviour
                 // 터치를 했다면
                 if (Input.touchCount > 0 && ui.isShake==false)
                 {
-                    if (!EventSystem.current
-                    .IsPointerOverGameObject(Input.GetTouch(0).fingerId))
+                    Touch touch = Input.GetTouch(0);
+                    if(touch.phase == TouchPhase.Ended)
                     {
-                        //터치 처리
+                        if (!EventSystem.current
+                   .IsPointerOverGameObject(Input.GetTouch(0).fingerId))
+                        {
+                            //터치 처리
 
-                        // 터치의 x좌표를 받아와서 player의 위치를 x로 옮기고 push
-                        MousePosition = Input.GetTouch(0).position;
-                        MousePosition = camera.ScreenToWorldPoint(MousePosition);
+                            // 터치의 x좌표를 받아와서 player의 위치를 x로 옮기고 push
+                            MousePosition = Input.GetTouch(0).position;
+                            MousePosition = camera.ScreenToWorldPoint(MousePosition);
 
 
-                        float mouseX = MousePosition.x;
-                        player.gameObject.transform.position = new Vector2(mouseX, playerYPos);
+                            float mouseX = MousePosition.x;
+                            player.gameObject.transform.position = new Vector2(mouseX, playerYPos);
 
 
-                        DropJelly();
+                            DropJelly();
+                        }
                     }
                 }
 
@@ -153,7 +158,8 @@ public class GameManager : MonoBehaviour
         Vector3 newPos = new Vector3(x, y, 0);
         quaternion rotation = quaternion.identity;
 
-        Instantiate(jellys[nowJellyNum], newPos, rotation);
+        GameObject jellyObject = Instantiate(jellys[nowJellyNum], newPos, rotation);
+        jellyObject.transform.SetParent(jellyBundle.transform);
         audioManager.SetAudio("Drop");
 
         SetScore(nowJellyNum);
@@ -303,6 +309,37 @@ public class GameManager : MonoBehaviour
         rankScoreTexts[1].text = PlayerPrefs.GetInt("SecondScore").ToString();
         rankScoreTexts[2].text = PlayerPrefs.GetInt("ThirdScore").ToString();
     }
+
+    public void ReStartGame()
+    {
+        audioManager.SetAudio("EXIT");
+        Save();
+        score = 0;
+        ui.ShowScore(score);
+
+        nowJelly.sprite = null;
+        nextJelly.sprite = null;
+
+        InitJelly();
+
+        foreach (Transform child in jellyBundle.transform)
+        {
+            Destroy(child.gameObject);
+        }
+
+        player.gameObject.transform.position = new Vector2(0, playerYPos);
+
+        
+
+        ui.UnActiveSettingPopUp();
+        if(isEnd==true)
+        {
+            ui.UnActiveGameOverImage();
+            isEnd = false;
+            Time.timeScale = 1;
+        }
+    }
+
 
 
     private void OnDrawGizmos()

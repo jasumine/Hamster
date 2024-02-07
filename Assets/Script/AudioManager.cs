@@ -36,10 +36,7 @@ public class AudioManager : MonoBehaviour
         effectSource.volume += _value;
         boxShakeSource. volume += _value;
     }
-    public void BgmPlay()
-    {
-        bgmSource.Play();
-    }
+
     public void BgmStop()
     {
         bgmSource.Stop();

@@ -136,7 +136,9 @@ public class JellyController : MonoBehaviour
         }
         else if(nextJelly != null)
         {
-            Instantiate(nextJelly, pos, quaternion);
+            GameObject jellyInstance = Instantiate(nextJelly, pos, quaternion);
+            jellyInstance.transform.SetParent(gameManager.jellyBundle.transform);
+
             gameManager.audioManager.SetAudio("Merge");
 
             gameManager.SetScore(level);
