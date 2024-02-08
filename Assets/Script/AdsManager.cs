@@ -1,201 +1,109 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 using GoogleMobileAds.Api;
-using Unity.VisualScripting;
-using System;
 
 public class AdsManager : MonoBehaviour
 {
-    //    private BannerView bannerView;
+    static bool isAdsBannerLoaded = false;
 
-    //    public void Start()
-    //    {
-    //        MobileAds.Initialize((InitializationStatus initStatus) => { });
-    //    }
-    //#if UNITY_ANDROID
-    //    string adUnitId = "ca-app-pub-3940256099942544/6300978111";
+    void Start()
+    {
+        if (!isAdsBannerLoaded)
+            RequestBanner();
+    }
 
-    //#elif UNITY_IPHON
-    //     string adUnitId = "ca-app-pub-3940256099942544/2934735716";
-    //#else
-    //       string adUnitId = "unexpected_platform";
+    //광고 요청 Method
+    private void RequestBanner()
+    {
+        //Test Banner ID : ca-app-pub-3940256099942544/6300978111
+        //여러분들의 광고 ID가 들어갈 곳입니다.
+        string BannerID = "ca-app-pub-3940256099942544/6300978111";
+        BannerView bannerview = new BannerView(BannerID, AdSize.SmartBanner, AdPosition.Bottom);
 
-    //#endif
+        AdRequest request = new AdRequest.Builder().Build();
+        bannerview.LoadAd(request);
+        isAdsBannerLoaded = true;
+    }
 
 
-    //    public void CreateBannerView()
-    //    {
-    //        Debug.Log("Creating banner view");
-
-    //        if (bannerView != null)
-    //        {
-    //            DestroyBannerView();
-    //        }
-
-    //        bannerView = new BannerView(adUnitId, AdSize.Banner, AdPosition.BottomLeft);
-
-    //        //AdSize adSize = new AdSize(0, 0);
-    //        //bannerView = new BannerView(adUnitId, adSize, AdPosition.Bottom);
-    //    }
-
-    //    public void LoadAd()
-    //    {
-    //        if(bannerView ==null)
-    //        {
-    //            CreateBannerView();
-    //        }
-
-    //        var adRequest = new AdRequest();
-
-    //        Debug.Log("Loading banner ad");
-    //        bannerView.LoadAd(adRequest);
-    //    }
-
-    //    private void ListenToAdEvents()
-    //    {
-    //        bannerView.OnBannerAdLoaded += () =>
-    //        {
-    //            Debug.Log("Banner view loaded an ad with response : " + bannerView.GetResponseInfo());
-    //        };
-
-    //        bannerView.OnBannerAdLoadFailed += (LoadAdError error) =>
-    //        {
-    //            Debug.LogError("Banner view failed to load an ad with error: " + error);
-    //        };
-
-    //        bannerView.OnAdPaid += (AdValue adValue) =>
-    //        {
-    //            Debug.Log(String.Format("Banner view paid {0} {1}.", adValue.Value, adValue.CurrencyCode));
-    //        };
-
-    //        bannerView.OnAdImpressionRecorded += () =>
-    //        {
-    //            Debug.Log("Banner view recorded an impression.");
-    //        };
-
-    //        bannerView.OnAdClicked += () =>
-    //        {
-    //            Debug.Log("Banner view was clicked.");
-    //        };
-
-    //        bannerView.OnAdFullScreenContentOpened += () =>
-    //        {
-    //            Debug.Log("Banner view full screen content opened.");
-    //        };
-
-    //        bannerView.OnAdFullScreenContentClosed += () =>
-    //        {
-    //            Debug.Log("Banner view full screen content closed.");
-    //        };
-    //    }
-
-    //    public void DestroyBannerView()
-    //    {
-    //        if(bannerView !=null)
-    //        {
-    //            Debug.Log("Destroying bannerview");
-    //            bannerView.Destroy();
-    //            bannerView = null;
-    //        }
-    //    }
-
-    string adUnitId;
-
-    BannerView _bannerView;
+    /*
+    private BannerView banner;
 
     public void Start()
     {
-        MobileAds.Initialize((InitializationStatus initStatus) =>
-        {
-            //초기화 완료
-        });
-
 #if UNITY_ANDROID
-        adUnitId = "ca-app-pub-3940256099942544/6300978111";
-#elif UNITY_IOS
-            adUnitId = "ca-app-pub-3940256099942544/2934735716";
+        string appId = "ca-app-pub-3940256099942544~3347511713";
+#elif UNITY_IPHONE
+            string appId = "ca-app-pub-3940256099942544~1458002511";
 #else
-            adUnitId = "unexpected_platform";
+            string appId = "unexpected_platform";
+#endif
+        // Initialize the Google Mobile Ads SDK.
+        MobileAds.Initialize(appId);
+
+        this.RequestBanner();
+    }
+
+    private void RequestBanner()
+    {
+#if UNITY_ANDROID
+        string AdUnitID = "ca-app-pub-3940256099942544/6300978111"; //테스트 아이디
+#else
+        string AdUnitID = "unDefind";
 #endif
 
-        LoadAd();
+        banner = new BannerView(AdUnitID, AdSize.SmartBanner, AdPosition.Bottom);
+
+        // Called when an ad request has successfully loaded.
+        banner.OnAdLoaded += HandleOnAdLoaded_banner;
+        // Called when an ad request failed to load.
+        banner.OnAdFailedToLoad += HandleOnAdFailedToLoad_banner;
+        // Called when an ad is clicked.
+        banner.OnAdOpening += HandleOnAdOpened_banner;
+        // Called when the user returned from the app after an ad click.
+        banner.OnAdClosed += HandleOnAdClosed_banner;
+        // Called when the ad click caused the user to leave the application.
+        banner.OnAdLeavingApplication += HandleOnAdLeavingApplication_banner;
+
+        AdRequest request = new AdRequest.Builder().Build();
+
+        banner.LoadAd(request);
     }
 
-    public void LoadAd() //광고 로드
+    public void ShowBanner()
     {
-        if (_bannerView == null)
-        {
-            CreateBannerView();
-        }
-        var adRequest = new AdRequest.Builder()
-            .AddKeyword("unity-admob-sample")
-            .Build();
-
-        Debug.Log("Loading banner ad.");
-        _bannerView.LoadAd(adRequest);
+        banner.Show();
     }
 
-    public void CreateBannerView() //광고 보여주기
+    public void HideBanner()
     {
-        Debug.Log("Creating banner view");
-
-        if (_bannerView != null)
-        {
-            DestroyAd();
-        }
-
-        _bannerView = new BannerView(adUnitId, AdSize.Banner, AdPosition.Top);
-
-        //_bannerView = new BannerView(_adUnitId, AdSize.Banner, 0, 50);
+        banner.Hide();
     }
 
-
-    private void ListenToAdEvents()
+    public void HandleOnAdLoaded_banner(object sender, EventArgs args)
     {
-        _bannerView.OnBannerAdLoaded += () =>
-        {
-            Debug.Log("Banner view loaded an ad with response : "
-                + _bannerView.GetResponseInfo());
-        };
-        _bannerView.OnBannerAdLoadFailed += (LoadAdError error) =>
-        {
-            Debug.LogError("Banner view failed to load an ad with error : "
-                + error);
-        };
-        _bannerView.OnAdPaid += (AdValue adValue) =>
-        {
-            Debug.Log(string.Format("Banner view paid {0} {1}.",
-                adValue.Value,
-                adValue.CurrencyCode));
-        };
-        _bannerView.OnAdImpressionRecorded += () =>
-        {
-            Debug.Log("Banner view recorded an impression.");
-        };
-        _bannerView.OnAdClicked += () =>
-        {
-            Debug.Log("Banner view was clicked.");
-        };
-        _bannerView.OnAdFullScreenContentOpened += (null);
-        {
-            Debug.Log("Banner view full screen content opened.");
-        };
-        _bannerView.OnAdFullScreenContentClosed += (null);
-        {
-            Debug.Log("Banner view full screen content closed.");
-        };
+        MonoBehaviour.print("HandleAdLoaded event received_banner");
     }
 
-    public void DestroyAd() //광고 제거
+    public void HandleOnAdFailedToLoad_banner(object sender, AdFailedToLoadEventArgs args)
     {
-        if (_bannerView != null)
-        {
-            Debug.Log("Destroying banner ad.");
-            _bannerView.Destroy();
-            _bannerView = null;
-        }
+        MonoBehaviour.print("HandleFailedToReceiveAd_banner event received with message: "
+                            + args.Message);
     }
 
+    public void HandleOnAdOpened_banner(object sender, EventArgs args)
+    {
+        MonoBehaviour.print("HandleAdOpened event received_banner");
+    }
 
+    public void HandleOnAdClosed_banner(object sender, EventArgs args)
+    {
+        MonoBehaviour.print("HandleAdClosed event received_banner");
+    }
+
+    public void HandleOnAdLeavingApplication_banner(object sender, EventArgs args)
+    {
+        MonoBehaviour.print("HandleAdLeavingApplication event received_banner");
+    }
+    */
 }
