@@ -176,7 +176,9 @@ public class JellyController : MonoBehaviour
 
         yield return new WaitForSeconds(0.7f);
 
-        Instantiate(nextJelly, _pos, _quaternion);
+        GameObject jellyInstance = Instantiate(nextJelly, _pos, _quaternion);
+        jellyInstance.transform.SetParent(gameManager.jellyBundle.transform);
+
         gameManager.SetScore(level);
 
         gameManager.glovalVolume.SetActive(false);

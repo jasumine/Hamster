@@ -97,29 +97,29 @@ public class GameManager : MonoBehaviour
             if(!isdelay)
             {
                 // 마우스 버튼을 눌렀다면
-                if (Input.GetMouseButtonUp(0) && ui.isShake==false)
-                {
-                    if (!EventSystem.current.IsPointerOverGameObject())
-                    {
-                        //클릭 처리
-                        // 마우스의 x좌표를 받아와서 player의 위치를 x로 옮기고 push
-                        MousePosition = Input.mousePosition;
-                        MousePosition = camera.ScreenToWorldPoint(MousePosition);
+                //if (Input.GetMouseButtonUp(0) && ui.isShake==false)
+                //{
+                //    if (!EventSystem.current.IsPointerOverGameObject())
+                //    {
+                //        //클릭 처리
+                //        // 마우스의 x좌표를 받아와서 player의 위치를 x로 옮기고 push
+                //        MousePosition = Input.mousePosition;
+                //        MousePosition = camera.ScreenToWorldPoint(MousePosition);
 
 
-                        float mouseX = MousePosition.x;
-                        player.gameObject.transform.position = new Vector2(mouseX, playerYPos);
+                //        float mouseX = MousePosition.x;
+                //        player.gameObject.transform.position = new Vector2(mouseX, playerYPos);
 
 
-                        DropJelly();
-                    }
-                }
+                //        DropJelly();
+                //    }
+                //}
 
                 // 터치를 했다면
-                if (Input.touchCount > 0 && ui.isShake==false)
+                if (Input.touchCount > 0 && ui.isShake == false)
                 {
                     Touch touch = Input.GetTouch(0);
-                    if(touch.phase == TouchPhase.Ended)
+                    if (touch.phase == TouchPhase.Ended)
                     {
                         if (!EventSystem.current
                    .IsPointerOverGameObject(Input.GetTouch(0).fingerId))
@@ -248,7 +248,7 @@ public class GameManager : MonoBehaviour
                     isEnd = true;
 
                     audioManager.BgmStop();
-                    audioManager.SetAudio("Over");
+                    //audioManager.SetAudio("Over");
                     Time.timeScale = 0;
                     ui.EndImage.SetActive(true);
                 }
@@ -267,14 +267,15 @@ public class GameManager : MonoBehaviour
             {
                 if (score <= PlayerPrefs.GetInt("ThirdScore"))
                 {
-                    // 내 점수가 3등보다 높을 경우(2등과 같을 경우 포함)
-                    // 새로운 점수를 넣는다.
-                    PlayerPrefs.SetInt("ThirdScore", score);
-                    PlayerPrefs.Save();
+                   
                     return;
                 }
                 else
                 {
+                    // 내 점수가 3등보다 높을 경우(2등과 같을 경우 포함)
+                    // 새로운 점수를 넣는다.
+                    PlayerPrefs.SetInt("ThirdScore", score);
+                    PlayerPrefs.Save();
                     return;
                 }
 
@@ -312,11 +313,12 @@ public class GameManager : MonoBehaviour
 
     public void ReStartGame()
     {
+        // 오디오를 끄고,
+        // 점수를 저장
         audioManager.SetAudio("EXIT");
         Save();
-        score = 0;
-        ui.ShowScore(score);
 
+        // 젤리 초기화 및 삭제
         nowJelly.sprite = null;
         nextJelly.sprite = null;
 
@@ -327,10 +329,11 @@ public class GameManager : MonoBehaviour
             Destroy(child.gameObject);
         }
 
+        // player 위치 초기화
         player.gameObject.transform.position = new Vector2(0, playerYPos);
 
-        
 
+        // PopUp off
         ui.UnActiveSettingPopUp();
         if(isEnd==true)
         {
@@ -338,6 +341,12 @@ public class GameManager : MonoBehaviour
             isEnd = false;
             Time.timeScale = 1;
         }
+
+        // 점수 초기화 및 점수팡 갱신, 브금 실행
+        score = 0;
+        ui.ShowScore(score);
+        LoadScorce();
+        audioManager.BgmStart();
     }
 
 
