@@ -69,7 +69,9 @@ public class JellyController : MonoBehaviour
 
      private void CheckOverlap()
     {
-
+        // overlap은 collider layer 확인
+        // bone layer - spring
+        // collider를 layer 구분으로 2개를 둠
         Collider2D[] colliders = Physics2D.OverlapCircleAll(boneCollider.bounds.center, radius, layerMask);
 
         for (int i = 0; i < colliders.Length; i++)
@@ -81,26 +83,37 @@ public class JellyController : MonoBehaviour
             {
                 if (otherJelly.tag == "Jelly")
                 {
+                    Debug.Log(gameObject.name + "젤리가 충돌했다");
                     if (otherJelly.level == level)
                     {
-
+                        Debug.Log(gameObject.name + "젤리 레벨이 같다.");
                         if (!checkCollision)
                         {
+                            Debug.Log(gameObject.name + "젤리 콜라이더 체크중.");
                             //Debug.Log("같은 레벨");
                             float meX = boneCollider.bounds.center.x;
                             float meY = boneCollider.bounds.center.y;
                             float otherX = otherJelly.boneCollider.bounds.center.x;
                             float otherY = otherJelly.boneCollider.bounds.center.y;
-
+                            Debug.Log(gameObject.name + "젤리 콜라이더 체크 완료.");
+                            Debug.Log(gameObject.name+boneCollider.bounds.center + otherJelly.boneCollider.bounds.center);
                             // 내가 아래이거나, 오른쪽에 있을때
-                            if (meY > otherY || (meY == otherY && meX > otherX))
+                                    if (meY > otherY || meX > otherX)
+                            //(meY > otherY ||  meX > otherX)
+                            // (meY > otherY || (meY == otherY && meX > otherX))
                             {
+                                Debug.Log(gameObject.name+ boneCollider.gameObject.name + "젤리 숨김 체크 중.");
                                 // other을 숨기고
                                 otherJelly.HideObject();
 
                                 // 다음단계를 생선한다.
                                 CraeteObject(meX, meY);
+                                Debug.Log(gameObject.name + "젤리 합쳐짐.");
                                 break;
+                            }
+                                    else
+                            {
+                                Debug.Log("뭔가 안댐");
                             }
                         }
                         else return;

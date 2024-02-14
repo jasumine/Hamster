@@ -116,22 +116,23 @@ public class GameManager : MonoBehaviour
                 //}
 
                 // 터치를 했다면
-                if (Input.touchCount > 0 && ui.isShake == false)
+                if (Input.touchCount > 0 && ui.isShake == false && ui.isCanTouch == true)
                 {
                     Touch touch = Input.GetTouch(0);
                     if (touch.phase == TouchPhase.Ended)
                     {
                         if (!EventSystem.current
-                   .IsPointerOverGameObject(Input.GetTouch(0).fingerId))
+                   .IsPointerOverGameObject(touch.fingerId))
                         {
                             //터치 처리
 
                             // 터치의 x좌표를 받아와서 player의 위치를 x로 옮기고 push
-                            MousePosition = Input.GetTouch(0).position;
-                            MousePosition = camera.ScreenToWorldPoint(MousePosition);
 
+                            //MousePosition = touch.position;
+                            //MousePosition = camera.ScreenToWorldPoint(MousePosition);
 
-                            float mouseX = MousePosition.x;
+                            Vector3 touchPosition = Camera.main.ScreenToWorldPoint(touch.position);
+                            float mouseX = touchPosition.x;
                             player.gameObject.transform.position = new Vector2(mouseX, playerYPos);
 
 

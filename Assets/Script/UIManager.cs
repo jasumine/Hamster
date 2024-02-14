@@ -28,6 +28,7 @@ public class UIManager : MonoBehaviour
     public float minRotate;
 
     public bool isShake;
+    public bool isCanTouch;
 
     public Image bgmImage;
     public Image SFXImage;
@@ -39,6 +40,7 @@ public class UIManager : MonoBehaviour
     void Start()
     {
         isShake = false;
+        isCanTouch = true;
         currentPage = 0;
 
         gameManager = GameManager.GetInstance();
@@ -104,11 +106,13 @@ public class UIManager : MonoBehaviour
     public void ActiveRankPopUp()
     {
         RankPanel.SetActive(true);
+        isCanTouch = false;
         gameManager.audioManager.SetAudio("Button");
     }
     public void UnActiveRankPopUp()
     {
         RankPanel.SetActive(false);
+        isCanTouch = true;
         gameManager.audioManager.SetAudio("Exit");
     }
 
@@ -116,12 +120,14 @@ public class UIManager : MonoBehaviour
     public void ActiveInfoPopUP()
     {
         InfoPanel.SetActive(true);
+        isCanTouch = false;
         gameManager.audioManager.SetAudio("Button");
     }
 
     public void UnActiveInfoPopUP()
     {
         InfoPanel.SetActive(false);
+        isCanTouch = true;
         gameManager.audioManager.SetAudio("Exit");
     }
 
@@ -179,12 +185,14 @@ public class UIManager : MonoBehaviour
     public void ActiveSettingPopUp()
     {
         SettingPanel.SetActive(true);
+        isCanTouch = false;
         gameManager.audioManager.SetAudio("Button");
     }
 
     public void UnActiveSettingPopUp()
     {
         SettingPanel.SetActive(false);
+        isCanTouch = true;
         gameManager.audioManager.SetAudio("EXIT");
     }
 

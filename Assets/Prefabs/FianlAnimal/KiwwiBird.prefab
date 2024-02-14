@@ -662,7 +662,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: -0.00050520897, y: 0.0023349524}
   serializedVersion: 2
-  m_Radius: 1.65
+  m_Radius: 1.72
 --- !u!114 &3269993303055718920
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -871,7 +871,7 @@ GameObject:
   - component: {fileID: 3697838229545166920}
   - component: {fileID: 6913666152540172892}
   - component: {fileID: 8414602923837718142}
-  m_Layer: 6
+  m_Layer: 12
   m_Name: bone_5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
