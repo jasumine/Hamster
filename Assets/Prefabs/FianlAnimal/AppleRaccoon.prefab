@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 1203010957807395134}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0.58}
   m_LocalScale: {x: 0.6819916, y: 0.6819916, z: 0.6819916}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -179,7 +179,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0.00000011920929, y: -0.00057017803}
   serializedVersion: 2
-  m_Radius: 1.55
+  m_Radius: 1.43
 --- !u!114 &1176669627452905115
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -211,11 +211,10 @@ MonoBehaviour:
   jellyImageEnd: {fileID: 21300000, guid: 9dc20c08a1520b341ac262c55de2aff3, type: 3}
   level: 7
   boneCollider: {fileID: 174667885694451705}
-  radius: 0.97
+  radius: 1
   layerMask:
     serializedVersion: 2
     m_Bits: 512
-  gameManager: {fileID: 0}
   objectNumber: 0
 --- !u!1 &3778329796197671719
 GameObject:
@@ -314,7 +313,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0.36, y: 0}
   serializedVersion: 2
-  m_Radius: 0.46
+  m_Radius: 0.52
 --- !u!231 &5079999193154679987
 SpringJoint2D:
   m_ObjectHideFlags: 0
@@ -475,7 +474,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0.54, y: 0}
   serializedVersion: 2
-  m_Radius: 0.46
+  m_Radius: 0.52
 --- !u!231 &9028292836212988019
 SpringJoint2D:
   m_ObjectHideFlags: 0
@@ -633,7 +632,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0.12, y: 0.04}
   serializedVersion: 2
-  m_Radius: 1.19
+  m_Radius: 1.27
 --- !u!1 &7553794369088353119
 GameObject:
   m_ObjectHideFlags: 0
@@ -731,7 +730,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0.54, y: 0}
   serializedVersion: 2
-  m_Radius: 0.46
+  m_Radius: 0.52
 --- !u!231 &2059176819790692869
 SpringJoint2D:
   m_ObjectHideFlags: 0
@@ -892,7 +891,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0.54, y: 0}
   serializedVersion: 2
-  m_Radius: 0.46
+  m_Radius: 0.52
 --- !u!231 &9099526872578851901
 SpringJoint2D:
   m_ObjectHideFlags: 0

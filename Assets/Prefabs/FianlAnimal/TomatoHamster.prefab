@@ -448,7 +448,7 @@ Transform:
   m_GameObject: {fileID: 3293303568117981698}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0.55}
   m_LocalScale: {x: 0.3380655, y: 0.3380655, z: 0.3380655}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -628,11 +628,11 @@ MonoBehaviour:
   jellyImageEnd: {fileID: 21300000, guid: 286b8079626129543850881f9285aabd, type: 3}
   level: 4
   boneCollider: {fileID: 1554261515268253973}
-  radius: 0.64
+  radius: 0.61
   layerMask:
     serializedVersion: 2
     m_Bits: 65536
-  gameManager: {fileID: 0}
+  objectNumber: 0
 --- !u!1 &3334195760344057386
 GameObject:
   m_ObjectHideFlags: 0

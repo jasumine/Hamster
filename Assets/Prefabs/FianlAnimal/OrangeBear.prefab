@@ -95,7 +95,7 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.81, y: 0}
+  m_Offset: {x: 0.73, y: 0}
   serializedVersion: 2
   m_Radius: 0.63
 --- !u!231 &6798960239990402497
@@ -256,7 +256,7 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.81, y: 0}
+  m_Offset: {x: 0.73, y: 0}
   serializedVersion: 2
   m_Radius: 0.63
 --- !u!231 &7432330847453737056
@@ -416,7 +416,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0.34, y: 0}
   serializedVersion: 2
-  m_Radius: 1.43
+  m_Radius: 1.55
 --- !u!1 &680101074504584056
 GameObject:
   m_ObjectHideFlags: 0
@@ -512,7 +512,7 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.81, y: 0}
+  m_Offset: {x: 0.73, y: 0}
   serializedVersion: 2
   m_Radius: 0.63
 --- !u!231 &3405340579657541144
@@ -609,7 +609,7 @@ Transform:
   m_GameObject: {fileID: 3928439059989638416}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0.57}
   m_LocalScale: {x: 0.5469434, y: 0.5469434, z: 0.5469434}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -757,7 +757,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: -0.07, y: -0.08}
   serializedVersion: 2
-  m_Radius: 1.81
+  m_Radius: 1.69
 --- !u!114 &5737575846181698229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -789,11 +789,11 @@ MonoBehaviour:
   jellyImageEnd: {fileID: 21300000, guid: 70e148b3adc8520498da9ee94a38e543, type: 3}
   level: 6
   boneCollider: {fileID: 5994831425651390650}
-  radius: 0.89
+  radius: 0.95
   layerMask:
     serializedVersion: 2
     m_Bits: 16384
-  gameManager: {fileID: 0}
+  objectNumber: 0
 --- !u!1 &8764808497060154203
 GameObject:
   m_ObjectHideFlags: 0
@@ -889,7 +889,7 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.81, y: 0}
+  m_Offset: {x: 0.73, y: 0}
   serializedVersion: 2
   m_Radius: 0.63
 --- !u!231 &2915958498125552700

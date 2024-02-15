@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 2138107759011125086}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0.54}
   m_LocalScale: {x: 0.2731324, y: 0.2731324, z: 0.2731324}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -199,7 +199,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 131072
-  gameManager: {fileID: 0}
+  objectNumber: 0
 --- !u!114 &2389227499842436321
 MonoBehaviour:
   m_ObjectHideFlags: 0

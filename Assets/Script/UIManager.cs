@@ -34,16 +34,12 @@ public class UIManager : MonoBehaviour
     public Image SFXImage;
 
 
-   public GameManager gameManager;
-
-
     void Start()
     {
         isShake = false;
         isCanTouch = true;
         currentPage = 0;
 
-        gameManager = GameManager.GetInstance();
 
         StartImage.SetActive(true);
         EndImage.SetActive(false);
@@ -73,8 +69,8 @@ public class UIManager : MonoBehaviour
     }
     IEnumerator ShakeBoxZ()
     {
-        gameManager.audioManager.SetAudio("Box");
-        gameManager.audioManager.BoxAudioPlay();
+        GameManager.GetInstance().audioManager.SetAudio("Box");
+        GameManager.GetInstance().audioManager.BoxAudioPlay();
         isShake = true;
 
         float z = 0;
@@ -107,13 +103,13 @@ public class UIManager : MonoBehaviour
     {
         RankPanel.SetActive(true);
         isCanTouch = false;
-        gameManager.audioManager.SetAudio("Button");
+        GameManager.GetInstance().audioManager.SetAudio("Button");
     }
     public void UnActiveRankPopUp()
     {
         RankPanel.SetActive(false);
         isCanTouch = true;
-        gameManager.audioManager.SetAudio("Exit");
+        GameManager.GetInstance().audioManager.SetAudio("Exit");
     }
 
 
@@ -121,19 +117,19 @@ public class UIManager : MonoBehaviour
     {
         InfoPanel.SetActive(true);
         isCanTouch = false;
-        gameManager.audioManager.SetAudio("Button");
+        GameManager.GetInstance().audioManager.SetAudio("Button");
     }
 
     public void UnActiveInfoPopUP()
     {
         InfoPanel.SetActive(false);
         isCanTouch = true;
-        gameManager.audioManager.SetAudio("Exit");
+        GameManager.GetInstance().audioManager.SetAudio("Exit");
     }
 
     public void MoveBeforeInfoPage()
     {
-        gameManager.audioManager.SetAudio("Button");
+        GameManager.GetInstance().audioManager.SetAudio("Button");
         if (currentPage > 0 && currentPage <= infoImages.Length-1)
         {
             currentPage--;
@@ -158,7 +154,7 @@ public class UIManager : MonoBehaviour
     }
     public void MoveAfterInfoPage()
     {
-        gameManager.audioManager.SetAudio("Button");
+        GameManager.GetInstance().audioManager.SetAudio("Button");
         if (currentPage >= 0 && currentPage < infoImages.Length-1 )
         {
             currentPage++;
@@ -186,36 +182,36 @@ public class UIManager : MonoBehaviour
     {
         SettingPanel.SetActive(true);
         isCanTouch = false;
-        gameManager.audioManager.SetAudio("Button");
+        GameManager.GetInstance().audioManager.SetAudio("Button");
     }
 
     public void UnActiveSettingPopUp()
     {
         SettingPanel.SetActive(false);
         isCanTouch = true;
-        gameManager.audioManager.SetAudio("EXIT");
+        GameManager.GetInstance().audioManager.SetAudio("EXIT");
     }
 
     public void DecreaseBGMVolume()
     {
-        gameManager.audioManager.SetBGM(-0.1f);
+        GameManager.GetInstance().audioManager.SetBGM(-0.1f);
         bgmImage.fillAmount += -0.1f;
     }
     public void IncreaseBGMVolume()
     {
-        gameManager.audioManager.SetBGM(0.1f);
+        GameManager.GetInstance().audioManager.SetBGM(0.1f);
         bgmImage.fillAmount += 0.1f;
     }
 
     public void DecreaseSFXVolume()
     {
-        gameManager.audioManager.SetSFX(-0.1f);
+        GameManager.GetInstance().audioManager.SetSFX(-0.1f);
         SFXImage.fillAmount += -0.1f;
     }
 
     public void IncreaseSFXVolume()
     {
-        gameManager.audioManager.SetSFX(0.1f);
+        GameManager.GetInstance().audioManager.SetSFX(0.1f);
         SFXImage.fillAmount +=0.1f;
     }
 
@@ -226,13 +222,13 @@ public class UIManager : MonoBehaviour
 
     public void ReStartGame()
     {
-        gameManager.ReStartGame();
+        GameManager.GetInstance().ReStartGame();
 
     }
 
     public void ExitGame()
     {
-        gameManager.Save();
+        GameManager.GetInstance().Save();
         Application.Quit();
     }
 

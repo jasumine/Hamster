@@ -92,6 +92,7 @@ public class JellyController : MonoBehaviour
             JellyController otherJelly = colliders[i].gameObject.GetComponent<JellyController>();
 
             otherJellyContoroller(otherJelly);
+            /*
             //if (otherJelly != null && otherJelly!= this)
             //{
             //    if (otherJelly.tag == "Jelly" && otherJelly.level == level)
@@ -166,7 +167,7 @@ public class JellyController : MonoBehaviour
             //                    }
 
             //                }
-            //            }*/
+            //            }
             //    }
             //    else return;
             //}
@@ -179,6 +180,7 @@ public class JellyController : MonoBehaviour
             //    //Debug.Log("Ãæµ¹µÇ´Â Á©¸®°¡ ¾ø½À´Ï´Ù.");
             //    return;
             //}
+            */
         }
     }
 
@@ -202,13 +204,13 @@ public class JellyController : MonoBehaviour
                     // Debug.Log(gameObject.name + "Á©¸® ÄÝ¶óÀÌ´õ Ã¼Å© ¿Ï·á.");
                     // Debug.Log(gameObject.name+boneCollider.bounds.center + otherJelly.boneCollider.bounds.center);
 
-                    Debug.Log(gameObject.name + boneCollider.gameObject.name + "Á©¸® ¼û±è Ã¼Å© Áß.");
+                   // Debug.Log(gameObject.name + boneCollider.gameObject.name + "Á©¸® ¼û±è Ã¼Å© Áß.");
                     // otherÀ» ¼û±â°í
                     otherJelly.HideObject();
 
                     // ´ÙÀ½´Ü°è¸¦ »ý¼±ÇÑ´Ù.
                     CraeteObject(meX, meY);
-                    Debug.Log(gameObject.name + "Á©¸® ÇÕÃÄÁü.");
+                   // Debug.Log(gameObject.name + "Á©¸® ÇÕÃÄÁü.");
                     
 
                     /*
@@ -269,12 +271,12 @@ public class JellyController : MonoBehaviour
             }
             else
             {
-                Debug.Log(gameObject.name + objectNumber + "tag level else");
+                //Debug.Log(gameObject.name + objectNumber + "tag level else");
             }
         }
         else
         {
-            Debug.Log(gameObject.name + objectNumber + "null, this ==false  else");
+           // Debug.Log(gameObject.name + objectNumber + "null, this ==false  else");
         }
     }
 
@@ -322,7 +324,7 @@ public class JellyController : MonoBehaviour
             GameManager.GetInstance().SetScore(level);
 
             this.gameObject.SetActive(false);
-            Debug.Log(gameObject.name + objectNumber + "create else");
+            //Debug.Log(gameObject.name + objectNumber + "create else");
            // Destroy(gameObject);
         }
     }

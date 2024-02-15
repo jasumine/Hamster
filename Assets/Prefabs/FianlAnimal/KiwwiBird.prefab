@@ -514,7 +514,7 @@ Transform:
   m_GameObject: {fileID: 2721478405707345578}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0.56}
   m_LocalScale: {x: 0.4418128, y: 0.4418128, z: 0.4418128}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -662,7 +662,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: -0.00050520897, y: 0.0023349524}
   serializedVersion: 2
-  m_Radius: 1.65
+  m_Radius: 1.63
 --- !u!114 &3269993303055718920
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -694,11 +694,10 @@ MonoBehaviour:
   jellyImageEnd: {fileID: 21300000, guid: de0a9bc42daedff47ba2028ffd9e319e, type: 3}
   level: 5
   boneCollider: {fileID: 8414602923837718142}
-  radius: 0.83
+  radius: 0.73
   layerMask:
     serializedVersion: 2
     m_Bits: 4096
-  gameManager: {fileID: 0}
   objectNumber: 0
 --- !u!1 &2973488620913107359
 GameObject:
@@ -955,4 +954,4 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0.18, y: 0.06}
   serializedVersion: 2
-  m_Radius: 1.35
+  m_Radius: 1.46

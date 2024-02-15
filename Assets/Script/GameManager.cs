@@ -82,6 +82,10 @@ public class GameManager : MonoBehaviour
 
         LoadScorce();
 
+
+        // 비율에 맞는 제일 낮은 해상도로 변경 + 카메라 조정
+        // 너비 / 높이 = 값 * wide  = height
+
        // StartCoroutine(RankData());
     }
 
@@ -143,6 +147,16 @@ public class GameManager : MonoBehaviour
                 if (Input.touchCount > 0 && ui.isShake == false && ui.isCanTouch == true)
                 {
                     Touch touch = Input.GetTouch(0);
+                    if(touch.phase == TouchPhase.Began || touch.phase == TouchPhase.Moved)
+                    {
+                        // 터치하는 동안 따라다니도록 만들기
+                        Vector3 touchPosition = Camera.main.ScreenToWorldPoint(touch.position);
+                        float mouseX = touchPosition.x;
+                        player.gameObject.transform.position = new Vector2(mouseX, playerYPos);
+
+                    }
+
+
                     if (touch.phase == TouchPhase.Ended)
                     {
                         if (!EventSystem.current
@@ -225,7 +239,22 @@ public class GameManager : MonoBehaviour
     {
         if (nextJelly.sprite == null)
         {
-            nextJellyNum = UnityEngine.Random.Range(0, jellys.Length);
+            float randNum = UnityEngine.Random.Range(0, 100);
+            // 1, 2, 3 단계는 65%확률로 나오고 4, 5, 6단계는 35%확률로 나온다.
+            switch (randNum)
+            {
+                // 0, 1 ,2
+                case <= 65:
+                    nextJellyNum = UnityEngine.Random.Range(0, 3);
+                    Debug.Log("randNum : " + randNum + ", nextJellyNum : " + nextJellyNum);
+                    break;
+                
+                // 3, 4, 5
+                case > 65:
+                    nextJellyNum = UnityEngine.Random.Range(3, 6);
+                    Debug.Log("randNum : " + randNum + ", nextJellyNum : " + nextJellyNum);
+                    break;
+            }
 
             nextJelly.gameObject.transform.localScale = jellys[nextJellyNum].gameObject.transform.localScale;
             JellyController jelly = jellys[nextJellyNum].GetComponent<JellyController>();
@@ -272,7 +301,7 @@ public class GameManager : MonoBehaviour
             {
                 if (colliders[i].gameObject.tag == "Jelly")
                 {
-                    Debug.Log("게임오버");
+                   // Debug.Log("게임오버");
                     isEnd = true;
 
                     audioManager.BgmStop();

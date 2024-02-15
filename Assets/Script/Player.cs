@@ -8,14 +8,11 @@ public class Player : MonoBehaviour
     public float maxXPos;
     public float minXPos;
 
-    GameManager gameManager;
-
     private bool isShake;
 
     private void Start()
     {
         isShake = false;
-       gameManager = GameManager.GetInstance();
     }
 
     private void Update()
@@ -26,7 +23,7 @@ public class Player : MonoBehaviour
 
     private void PlayerInput()
     {
-        if (gameManager.ismove)
+        if (GameManager.GetInstance().ismove)
         {
             Move();
         }
