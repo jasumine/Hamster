@@ -95,9 +95,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.6, y: 0}
+  m_Offset: {x: 0.48, y: 0}
   serializedVersion: 2
-  m_Radius: 0.61
+  m_Radius: 0.46
 --- !u!231 &116042440572024828
 SpringJoint2D:
   m_ObjectHideFlags: 0
@@ -258,7 +258,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0.6, y: 0}
   serializedVersion: 2
-  m_Radius: 0.61
+  m_Radius: 0.46
 --- !u!231 &3511099907368915077
 SpringJoint2D:
   m_ObjectHideFlags: 0
@@ -419,7 +419,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0.6, y: 0}
   serializedVersion: 2
-  m_Radius: 0.61
+  m_Radius: 0.46
 --- !u!231 &2842616540938386870
 SpringJoint2D:
   m_ObjectHideFlags: 0
@@ -796,7 +796,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0.6, y: 0}
   serializedVersion: 2
-  m_Radius: 0.61
+  m_Radius: 0.46
 --- !u!231 &7823024181127775594
 SpringJoint2D:
   m_ObjectHideFlags: 0
@@ -954,4 +954,4 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0.48, y: 0}
   serializedVersion: 2
-  m_Radius: 1.58
+  m_Radius: 1.48

@@ -22,9 +22,15 @@ public class JellyController : MonoBehaviour
     [SerializeField] private LayerMask layerMask;
     [SerializeField] private GameManager gameManager;
 
+    private static int objectCount = 0;
+    public int objectNumber;
+
+
     private void Start()
     {
         gameManager = GameManager.GetInstance();
+        objectCount++;
+        objectNumber = objectCount;
     }
 
     private void Update()
@@ -81,47 +87,75 @@ public class JellyController : MonoBehaviour
             JellyController otherJelly = colliders[i].gameObject.GetComponent<JellyController>();
             if (otherJelly != null && otherJelly!= this)
             {
-                if (otherJelly.tag == "Jelly")
+                if (otherJelly.tag == "Jelly" && otherJelly.level == level)
                 {
-                    Debug.Log(gameObject.name + "젤리가 충돌했다");
-                    if (otherJelly.level == level)
+                    Debug.Log(gameObject.name + "젤리 레벨이 같다.");
+                    if (!checkCollision)
                     {
-                        Debug.Log(gameObject.name + "젤리 레벨이 같다.");
-                        if (!checkCollision)
-                        {
-                            Debug.Log(gameObject.name + "젤리 콜라이더 체크중.");
-                            //Debug.Log("같은 레벨");
-                            float meX = boneCollider.bounds.center.x;
-                            float meY = boneCollider.bounds.center.y;
-                            float otherX = otherJelly.boneCollider.bounds.center.x;
-                            float otherY = otherJelly.boneCollider.bounds.center.y;
-                            Debug.Log(gameObject.name + "젤리 콜라이더 체크 완료.");
-                            Debug.Log(gameObject.name+boneCollider.bounds.center + otherJelly.boneCollider.bounds.center);
-                            // 내가 아래이거나, 오른쪽에 있을때
-                                    if (meY > otherY || meX > otherX)
-                            //(meY > otherY ||  meX > otherX)
+                        Debug.Log(gameObject.name + "젤리 콜라이더 체크중.");
+                        //Debug.Log("같은 레벨");
+                        float meX = boneCollider.bounds.center.x;
+                        float meY = boneCollider.bounds.center.y;
+                        float otherX = otherJelly.boneCollider.bounds.center.x;
+                        float otherY = otherJelly.boneCollider.bounds.center.y;
+                        Debug.Log(gameObject.name + "젤리 콜라이더 체크 완료.");
+                        Debug.Log(gameObject.name+boneCollider.bounds.center + otherJelly.boneCollider.bounds.center);
+
+                        // 내가 아래이거나, 오른쪽에 있을때
+                        if(objectNumber < otherJelly.objectNumber)
+                            //(meY > otherY)
+                            //(meY > otherY || meX > otherX)
                             // (meY > otherY || (meY == otherY && meX > otherX))
                             {
-                                Debug.Log(gameObject.name+ boneCollider.gameObject.name + "젤리 숨김 체크 중.");
-                                // other을 숨기고
-                                otherJelly.HideObject();
+                            Debug.Log(gameObject.name+ boneCollider.gameObject.name + "젤리 숨김 체크 중.");
+                            // other을 숨기고
+                            otherJelly.HideObject();
 
-                                // 다음단계를 생선한다.
-                                CraeteObject(meX, meY);
-                                Debug.Log(gameObject.name + "젤리 합쳐짐.");
-                                break;
-                            }
-                                    else
-                            {
-                                Debug.Log("뭔가 안댐");
-                            }
+                            // 다음단계를 생선한다.
+                            CraeteObject(meX, meY);
+                            Debug.Log(gameObject.name + "젤리 합쳐짐.");
+                            break;
                         }
-                        else return;
+                        else
+                        {
+                            Debug.Log("뭔가 안댐");
+                            // 충돌했는데 합쳐지지 않는경우 -> 중점에서부터 서로의 반지름의 길이 보다 짧은경우-> 지름의 길이보다 짧은경우 -> 합쳐지도록 한다. (원의 충돌체크)
+
+                            // me의 중점부터 other의 중점까지의 길이 < overlap의 radius *2 거리 라면 합친다.
+
+                            float distance = Vector3.Distance(boneCollider.bounds.center, otherJelly.boneCollider.bounds.center);
+
+                            float overlapRadius2 = radius * 2;
+
+                            if(distance<=overlapRadius2)
+                            {
+                                Debug.Log("합치기!!!1");
+                                // 번호가 더 높다 = 최근에 생성 됬다.
+                                if (objectNumber < otherJelly.objectNumber)
+                                //(meY > otherY || meX > otherX)
+                                // (meY > otherY || (meY == otherY && meX > otherX))
+                                {
+                                    Debug.Log(gameObject.name + boneCollider.gameObject.name + "젤리 숨김 체크 중.");
+                                    // other을 숨기고
+                                    otherJelly.HideObject();
+
+                                    // 다음단계를 생선한다.
+                                    CraeteObject(meX, meY);
+                                    Debug.Log(gameObject.name + "젤리 합쳐짐.");
+                                    break;
+                                }
+
+                            }
+
+
+                        }
                     }
+                        else return;
+                }
                     else return;
                 }
-                else return;
-            }
+
+            
             else
             {
                 //Debug.Log("충돌되는 젤리가 없습니다.");
@@ -129,6 +163,13 @@ public class JellyController : MonoBehaviour
             }
         }
     }
+
+    private void RadiusCheck()
+    {
+        
+    }
+
+
 
     private void HideObject()
     {

@@ -95,7 +95,7 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.72, y: 0}
+  m_Offset: {x: 0.85, y: 0}
   serializedVersion: 2
   m_Radius: 0.69
 --- !u!231 &3856553226895574103
@@ -256,7 +256,7 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.72, y: 0}
+  m_Offset: {x: 0.85, y: 0}
   serializedVersion: 2
   m_Radius: 0.69
 --- !u!231 &2694864170593973320
@@ -417,7 +417,7 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.72, y: 0}
+  m_Offset: {x: 0.85, y: 0}
   serializedVersion: 2
   m_Radius: 0.69
 --- !u!231 &8270686785501829531
@@ -662,7 +662,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: -0.00050520897, y: 0.0023349524}
   serializedVersion: 2
-  m_Radius: 1.72
+  m_Radius: 1.84
 --- !u!114 &3269993303055718920
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -694,7 +694,7 @@ MonoBehaviour:
   jellyImageEnd: {fileID: 21300000, guid: de0a9bc42daedff47ba2028ffd9e319e, type: 3}
   level: 5
   boneCollider: {fileID: 8414602923837718142}
-  radius: 0.77
+  radius: 0.74
   layerMask:
     serializedVersion: 2
     m_Bits: 4096
@@ -794,7 +794,7 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.72, y: 0}
+  m_Offset: {x: 0.85, y: 0}
   serializedVersion: 2
   m_Radius: 0.69
 --- !u!231 &6820137491603211111
@@ -954,4 +954,4 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0.18, y: 0.06}
   serializedVersion: 2
-  m_Radius: 1.51
+  m_Radius: 1.35

@@ -179,7 +179,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0.00000011920929, y: -0.00057017803}
   serializedVersion: 2
-  m_Radius: 1.4
+  m_Radius: 1.55
 --- !u!114 &1176669627452905115
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -211,11 +211,12 @@ MonoBehaviour:
   jellyImageEnd: {fileID: 21300000, guid: 9dc20c08a1520b341ac262c55de2aff3, type: 3}
   level: 7
   boneCollider: {fileID: 174667885694451705}
-  radius: 1.03
+  radius: 0.97
   layerMask:
     serializedVersion: 2
     m_Bits: 512
   gameManager: {fileID: 0}
+  objectNumber: 0
 --- !u!1 &3778329796197671719
 GameObject:
   m_ObjectHideFlags: 0
@@ -472,7 +473,7 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.36, y: 0}
+  m_Offset: {x: 0.54, y: 0}
   serializedVersion: 2
   m_Radius: 0.46
 --- !u!231 &9028292836212988019
@@ -632,7 +633,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0.12, y: 0.04}
   serializedVersion: 2
-  m_Radius: 1.31
+  m_Radius: 1.19
 --- !u!1 &7553794369088353119
 GameObject:
   m_ObjectHideFlags: 0
@@ -728,7 +729,7 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.36, y: 0}
+  m_Offset: {x: 0.54, y: 0}
   serializedVersion: 2
   m_Radius: 0.46
 --- !u!231 &2059176819790692869
@@ -889,7 +890,7 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.36, y: 0}
+  m_Offset: {x: 0.54, y: 0}
   serializedVersion: 2
   m_Radius: 0.46
 --- !u!231 &9099526872578851901

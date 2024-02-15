@@ -3028,6 +3028,26 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1986994859}
     - target: {fileID: 9088391775444124121, guid: 4867d851a61b855498d1b586e59a0555, type: 3}
+      propertyPath: jellys.Array.data[0]
+      value: 
+      objectReference: {fileID: 2721478405707345578, guid: b04b86506d7f283468d4f88f33b0bacd, type: 3}
+    - target: {fileID: 9088391775444124121, guid: 4867d851a61b855498d1b586e59a0555, type: 3}
+      propertyPath: jellys.Array.data[1]
+      value: 
+      objectReference: {fileID: 2721478405707345578, guid: b04b86506d7f283468d4f88f33b0bacd, type: 3}
+    - target: {fileID: 9088391775444124121, guid: 4867d851a61b855498d1b586e59a0555, type: 3}
+      propertyPath: jellys.Array.data[2]
+      value: 
+      objectReference: {fileID: 2721478405707345578, guid: b04b86506d7f283468d4f88f33b0bacd, type: 3}
+    - target: {fileID: 9088391775444124121, guid: 4867d851a61b855498d1b586e59a0555, type: 3}
+      propertyPath: jellys.Array.data[3]
+      value: 
+      objectReference: {fileID: 2721478405707345578, guid: b04b86506d7f283468d4f88f33b0bacd, type: 3}
+    - target: {fileID: 9088391775444124121, guid: 4867d851a61b855498d1b586e59a0555, type: 3}
+      propertyPath: jellys.Array.data[4]
+      value: 
+      objectReference: {fileID: 2721478405707345578, guid: b04b86506d7f283468d4f88f33b0bacd, type: 3}
+    - target: {fileID: 9088391775444124121, guid: 4867d851a61b855498d1b586e59a0555, type: 3}
       propertyPath: gameSceneList.Array.size
       value: 2
       objectReference: {fileID: 0}
