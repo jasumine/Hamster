@@ -45,14 +45,15 @@ public class GameManager : MonoBehaviour
 
     private static GameManager instance;
     private GameManager() { }
+
+    // jelly list를 만들어서 list는 for문을 돌려서-> setActive(true)일 경우 overlap을 호출한다.
+    // 
+
+    public List<GameObject> jellyObjects; 
+
     public static GameManager GetInstance()
     {
-      
-        if (instance == null)
-        {
-            instance = new GameManager();
-        }
-            return instance;
+         return instance;
     }
 
     private void Awake()
@@ -89,6 +90,29 @@ public class GameManager : MonoBehaviour
         PushJelly();
         CheckDeadLine();
     }
+
+    private void FixedUpdate()
+    {
+        CheckJelly();
+    }
+
+    private void CheckJelly()
+    {
+        for(int i = 0; i< jellyObjects.Count; i++)
+        { 
+            if (jellyObjects[i].activeSelf == true)
+            {
+                JellyController jellyController = jellyObjects[i].GetComponent<JellyController>();
+                jellyController.CheckOverlap();
+            }
+            else
+            {
+                jellyObjects.RemoveAt(i);
+               
+            }
+        }
+    }
+
 
     private void PushJelly()
     {
@@ -161,6 +185,9 @@ public class GameManager : MonoBehaviour
 
         GameObject jellyObject = Instantiate(jellys[nowJellyNum], newPos, rotation);
         jellyObject.transform.SetParent(jellyBundle.transform);
+        jellyObjects.Add(jellyObject);
+
+
         audioManager.SetAudio("Drop");
 
         SetScore(nowJellyNum);
@@ -322,6 +349,8 @@ public class GameManager : MonoBehaviour
         // 젤리 초기화 및 삭제
         nowJelly.sprite = null;
         nextJelly.sprite = null;
+
+        jellyObjects.Clear();
 
         InitJelly();
 
