@@ -46,9 +46,6 @@ public class GameManager : MonoBehaviour
     private static GameManager instance;
     private GameManager() { }
 
-    // jelly list를 만들어서 list는 for문을 돌려서-> setActive(true)일 경우 overlap을 호출한다.
-    // 
-
     public List<GameObject> jellyObjects; 
 
     public static GameManager GetInstance()
@@ -82,10 +79,6 @@ public class GameManager : MonoBehaviour
 
         LoadScorce();
 
-
-        // 비율에 맞는 제일 낮은 해상도로 변경 + 카메라 조정
-        // 너비 / 높이 = 값 * wide  = height
-
        // StartCoroutine(RankData());
     }
 
@@ -102,7 +95,9 @@ public class GameManager : MonoBehaviour
 
     private void CheckJelly()
     {
-        for(int i = 0; i< jellyObjects.Count; i++)
+        // jelly list를 만들어서 list는 for문을 돌려서-> setActive(true)일 경우 overlap을 호출한다.
+
+        for (int i = 0; i< jellyObjects.Count; i++)
         { 
             if (jellyObjects[i].activeSelf == true)
             {
@@ -171,6 +166,20 @@ public class GameManager : MonoBehaviour
 
                             Vector3 touchPosition = Camera.main.ScreenToWorldPoint(touch.position);
                             float mouseX = touchPosition.x;
+
+                            Player playerPos = player.GetOrAddComponent<Player>();
+
+                            if (mouseX <= playerPos.minXPos)
+                            {
+                                mouseX = playerPos.minXPos;
+                            }
+
+                            if (mouseX >= playerPos.maxXPos)
+                            {
+                                mouseX = playerPos.maxXPos;
+                            }
+
+
                             player.gameObject.transform.position = new Vector2(mouseX, playerYPos);
 
 

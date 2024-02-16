@@ -3,7 +3,7 @@
   <Class Name="AudioManager">
     <Position X="10.5" Y="0.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAgAABAAAAAAAAAAAAEAABAAAACAAAAAAAAAA=</HashCode>
+      <HashCode>AEAAAAAAgAABAAABAAABAAAAEAABAAAACAAAAEAAAAA=</HashCode>
       <FileName>Assets\Script\AudioManager.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -15,7 +15,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Fps" Collapsed="true">
-    <Position X="14.25" Y="2.25" Width="1.5" />
+    <Position X="13.25" Y="0.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAQCAAAAACEAAgAAAAAAAAAAAAAAAAAAAACCABAAAAA=</HashCode>
       <FileName>Assets\Script\Fps.cs</FileName>
@@ -24,42 +24,28 @@
   <Class Name="JellyController">
     <Position X="5.25" Y="4.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AEQEAACACCAAAQAAAAAAAAEAAIkAIAAAAAIAAEAQQCA=</HashCode>
+      <HashCode>AAQEAACACiIAAQAAAAAAAAkAAIkAIAAAAAIAAEAQQCA=</HashCode>
       <FileName>Assets\Script\JellyController.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Player">
     <Position X="5.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AEQAQAAAEKIAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAA=</HashCode>
+      <HashCode>AAQAQAAAEKIAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAA=</HashCode>
       <FileName>Assets\Script\Player.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="SheetsManager" Collapsed="true">
-    <Position X="14.25" Y="3.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAEAABAAAAAAAAAAAAAAAgAAAAAAAAAAAAIAA=</HashCode>
-      <FileName>Assets\Script\SheetsManager.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="UIManager">
     <Position X="8.75" Y="0.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>gUAAAAgA0CCEkAAAwiECAACAAAUgBABiAAAkAgAAxCA=</HashCode>
+      <HashCode>gQAAAAgI0CCEkAAAwiECAACAAAUgBABiAAAkIgAAxCA=</HashCode>
       <FileName>Assets\Script\UIManager.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="PluginManager">
-    <Position X="10.5" Y="4.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAACAAAEAAAAAAAAAACAAAAAAAAACABACAAAA=</HashCode>
-      <FileName>Assets\Plugin\Android\PluginManager.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="GameManager">
     <Position X="3.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AIwMQICAAiEBUIwAAAAKMAAAFBBIBAShIAgEAAJCBEA=</HashCode>
+      <HashCode>AJwMQICAAiABUIwIAAAqMAAAFBBIBAChIAgEAAJChEA=</HashCode>
       <FileName>Assets\Script\GameManager.cs</FileName>
     </TypeIdentifier>
   </Class>
