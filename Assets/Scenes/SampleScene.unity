@@ -1259,6 +1259,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1222835084 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9066150975497738711, guid: 6ec3382fe380df341afe8c5f0c0510e7, type: 3}
+  m_PrefabInstance: {fileID: 1564371000}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1250339196
 GameObject:
   m_ObjectHideFlags: 0
@@ -2194,27 +2199,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7164010790063585168, guid: 6ec3382fe380df341afe8c5f0c0510e7, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7164010790063585168, guid: 6ec3382fe380df341afe8c5f0c0510e7, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7164010790063585168, guid: 6ec3382fe380df341afe8c5f0c0510e7, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7164010790063585168, guid: 6ec3382fe380df341afe8c5f0c0510e7, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7164010790063585168, guid: 6ec3382fe380df341afe8c5f0c0510e7, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 800
       objectReference: {fileID: 0}
     - target: {fileID: 7164010790063585168, guid: 6ec3382fe380df341afe8c5f0c0510e7, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 1734
       objectReference: {fileID: 0}
     - target: {fileID: 7181037546271589620, guid: 6ec3382fe380df341afe8c5f0c0510e7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -2502,7 +2507,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9066150975497738711, guid: 6ec3382fe380df341afe8c5f0c0510e7, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9094288758184628960, guid: 6ec3382fe380df341afe8c5f0c0510e7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -3144,6 +3149,10 @@ PrefabInstance:
       propertyPath: SettingPanel
       value: 
       objectReference: {fileID: 1720827518}
+    - target: {fileID: 4112511350823193049, guid: 4867d851a61b855498d1b586e59a0555, type: 3}
+      propertyPath: StartYongImage
+      value: 
+      objectReference: {fileID: 1222835084}
     - target: {fileID: 4112511350823193049, guid: 4867d851a61b855498d1b586e59a0555, type: 3}
       propertyPath: boxRotationSpeed
       value: 0.5

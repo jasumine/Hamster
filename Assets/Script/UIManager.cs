@@ -20,6 +20,7 @@ public class UIManager : MonoBehaviour
 
     public GameObject SettingPanel;
     public GameObject StartImage;
+    public GameObject StartYongImage;
     public GameObject EndImage;
 
     public GameObject boxParents;
@@ -42,6 +43,7 @@ public class UIManager : MonoBehaviour
 
 
         StartImage.SetActive(true);
+        StartYongImage.SetActive(true);
         EndImage.SetActive(false);
     }
 
@@ -53,6 +55,7 @@ public class UIManager : MonoBehaviour
     public void TouchToStart()
     {
         StartImage.SetActive(false);
+        StartYongImage.SetActive(false);
     }
 
     
