@@ -29,6 +29,10 @@ public class GameManager : MonoBehaviour
 
     public float delayTime = 0.5f;
     public bool isdelay = false;
+
+    public float delayCreateTime;
+    public bool isDelayCreate = false;
+
     private int nowJellyNum;
     private int nextJellyNum;
 
@@ -86,6 +90,7 @@ public class GameManager : MonoBehaviour
     {
         PushJelly();
         CheckDeadLine();
+        IsDelayCreate();
     }
 
     private void FixedUpdate()
@@ -99,7 +104,8 @@ public class GameManager : MonoBehaviour
 
         for (int i = 0; i< jellyObjects.Count; i++)
         { 
-            if (jellyObjects[i].activeSelf == true)
+            // delay가 아닐 경우(false)에 합쳐준다. -> 눈에 보이도록 하기 위함
+            if (jellyObjects[i].activeSelf == true )
             {
                 JellyController jellyController = jellyObjects[i].GetComponent<JellyController>();
                 jellyController.CheckOverlap();
@@ -110,6 +116,19 @@ public class GameManager : MonoBehaviour
                
             }
         }
+    }
+
+    private void IsDelayCreate()
+    {
+        if(isDelayCreate == true)
+        {
+            Invoke("DelayCreateFalse", delayCreateTime);
+        }
+    }
+
+    private void DelayCreateFalse()
+    {
+        isDelayCreate = false;
     }
 
 

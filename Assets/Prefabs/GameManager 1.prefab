@@ -55,6 +55,7 @@ MonoBehaviour:
   - {fileID: 2721478405707345578, guid: b04b86506d7f283468d4f88f33b0bacd, type: 3}
   nowJelly: {fileID: 0}
   nextJelly: {fileID: 0}
+  jellyBundle: {fileID: 0}
   thunderEffect: {fileID: 0}
   glovalVolume: {fileID: 0}
   gameOverBox: {fileID: 0}
@@ -62,12 +63,15 @@ MonoBehaviour:
   score: 0
   delayTime: 0
   isdelay: 0
+  delayCreateTime: 0.2
+  isDelayCreate: 0
   isEnd: 0
   rankScoreTexts: []
   camera: {fileID: 0}
   player: {fileID: 0}
   playerYPos: 0
   audioManager: {fileID: 0}
+  jellyObjects: []
 --- !u!114 &4112511350823193049
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -88,12 +92,13 @@ MonoBehaviour:
   currentPage: 0
   SettingPanel: {fileID: 0}
   StartImage: {fileID: 0}
+  StartYongImage: {fileID: 0}
   EndImage: {fileID: 0}
   boxParents: {fileID: 0}
   boxRotationSpeed: 0
   maxRotate: 0
   minRotate: 0
   isShake: 0
+  isCanTouch: 0
   bgmImage: {fileID: 0}
   SFXImage: {fileID: 0}
-  gameManager: {fileID: 0}

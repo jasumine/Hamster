@@ -211,7 +211,7 @@ MonoBehaviour:
   jellyImageEnd: {fileID: 21300000, guid: 50837eeb9d01f5c40af3c94d898e6f92, type: 3}
   level: 1
   boneCollider: {fileID: 8237453684449298618}
-  radius: 0.32
+  radius: 0.31
   layerMask:
     serializedVersion: 2
     m_Bits: 2048

@@ -199,37 +199,34 @@ public class JellyController : MonoBehaviour
                     //Debug.Log("같은 레벨");
                     float meX = boneCollider.bounds.center.x;
                     float meY = boneCollider.bounds.center.y;
-                    float otherX = otherJelly.boneCollider.bounds.center.x;
-                    float otherY = otherJelly.boneCollider.bounds.center.y;
+                    //float otherX = otherJelly.boneCollider.bounds.center.x;
+                    //float otherY = otherJelly.boneCollider.bounds.center.y;
                     // Debug.Log(gameObject.name + "젤리 콜라이더 체크 완료.");
                     // Debug.Log(gameObject.name+boneCollider.bounds.center + otherJelly.boneCollider.bounds.center);
 
                    // Debug.Log(gameObject.name + boneCollider.gameObject.name + "젤리 숨김 체크 중.");
                     // other을 숨기고
-                    otherJelly.HideObject();
 
-                    // 다음단계를 생선한다.
-                    CraeteObject(meX, meY);
-                   // Debug.Log(gameObject.name + "젤리 합쳐짐.");
                     
-
-                    /*
                     // 내가 아래이거나, 오른쪽에 있을때
                     // 최근에 만들어 진 것을 기준으로(num이 높음)
-                    if (meY > otherY)
-                //(objectNumber < otherJelly.objectNumber)
+                    if (objectNumber < otherJelly.objectNumber)
                 //(meY > otherY || meX > otherX)
                 //   (meY > otherY || (meY == otherY && meX > otherX))
                      {
-                         Debug.Log(gameObject.name+ boneCollider.gameObject.name + "젤리 숨김 체크 중.");
-                        // other을 숨기고
-                        otherJelly.HideObject();
+                        if(GameManager.GetInstance().isDelayCreate== false)
+                        {
+                            // Debug.Log(gameObject.name+ boneCollider.gameObject.name + "젤리 숨김 체크 중.");
+                            // other을 숨기고
+                            otherJelly.HideObject();
 
-                        // 다음단계를 생선한다.
-                        CraeteObject(meX, meY);
-                        Debug.Log(gameObject.name + "젤리 합쳐짐.");
-                        break;
+                            // 다음단계를 생선한다.
+                            CraeteObject(meX, meY);
+                            // Debug.Log(gameObject.name + "젤리 합쳐짐.");
+                            GameManager.GetInstance().isDelayCreate =true;
+                        }
                     }
+                    /*
                     else
                     {
                         Debug.Log(gameObject.name + objectNumber+"뭔가 안댐");
@@ -258,7 +255,6 @@ public class JellyController : MonoBehaviour
                                 // 다음단계를 생선한다.
                                 CraeteObject(meX, meY);
                                 Debug.Log(gameObject.name + objectNumber + "젤리 합쳐짐.");
-                                break;
                             }
 
                         }

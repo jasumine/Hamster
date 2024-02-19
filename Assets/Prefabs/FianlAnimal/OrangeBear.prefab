@@ -789,7 +789,7 @@ MonoBehaviour:
   jellyImageEnd: {fileID: 21300000, guid: 70e148b3adc8520498da9ee94a38e543, type: 3}
   level: 6
   boneCollider: {fileID: 5994831425651390650}
-  radius: 0.95
+  radius: 0.9
   layerMask:
     serializedVersion: 2
     m_Bits: 16384

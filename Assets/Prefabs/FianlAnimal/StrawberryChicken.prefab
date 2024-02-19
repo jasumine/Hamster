@@ -94,7 +94,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 1.49
+  m_Radius: 1.41
 --- !u!1 &4120145897379800758
 GameObject:
   m_ObjectHideFlags: 0
@@ -190,9 +190,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.6, y: 0}
+  m_Offset: {x: 0.67, y: 0}
   serializedVersion: 2
-  m_Radius: 0.72
+  m_Radius: 0.6
 --- !u!231 &792539322138669932
 SpringJoint2D:
   m_ObjectHideFlags: 0
@@ -351,9 +351,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.74, y: 0}
+  m_Offset: {x: 0.67, y: 0}
   serializedVersion: 2
-  m_Radius: 0.72
+  m_Radius: 0.6
 --- !u!231 &6198983176159673854
 SpringJoint2D:
   m_ObjectHideFlags: 0
@@ -512,9 +512,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.6, y: 0}
+  m_Offset: {x: 0.67, y: 0}
   serializedVersion: 2
-  m_Radius: 0.72
+  m_Radius: 0.6
 --- !u!231 &8392698183958769778
 SpringJoint2D:
   m_ObjectHideFlags: 0
@@ -673,9 +673,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.6, y: 0}
+  m_Offset: {x: 0.67, y: 0}
   serializedVersion: 2
-  m_Radius: 0.72
+  m_Radius: 0.6
 --- !u!231 &8353623021154237501
 SpringJoint2D:
   m_ObjectHideFlags: 0
@@ -918,7 +918,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: -0.01, y: -0.28}
   serializedVersion: 2
-  m_Radius: 1.61
+  m_Radius: 1.49
 --- !u!114 &3961659761930596378
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -950,7 +950,7 @@ MonoBehaviour:
   jellyImageEnd: {fileID: 21300000, guid: d4ccd986b00e138438255eaa9c931780, type: 3}
   level: 9
   boneCollider: {fileID: 3896967931128661364}
-  radius: 1.46
+  radius: 1.27
   layerMask:
     serializedVersion: 2
     m_Bits: 32768

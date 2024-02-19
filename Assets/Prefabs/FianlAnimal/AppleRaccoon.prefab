@@ -179,7 +179,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0.00000011920929, y: -0.00057017803}
   serializedVersion: 2
-  m_Radius: 1.41
+  m_Radius: 1.33
 --- !u!114 &1176669627452905115
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -211,7 +211,7 @@ MonoBehaviour:
   jellyImageEnd: {fileID: 21300000, guid: 9dc20c08a1520b341ac262c55de2aff3, type: 3}
   level: 7
   boneCollider: {fileID: 174667885694451705}
-  radius: 1
+  radius: 0.94
   layerMask:
     serializedVersion: 2
     m_Bits: 512
