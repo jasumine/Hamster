@@ -53,7 +53,7 @@ public class BackgroundManager : MonoBehaviour
         int baseXR = baseX / baseY;
         int baseYR = baseY / baseX;
 
-      //  Debug.Log("가로 : " + baseX + ", 세로 : " + baseY);
+        // Debug.Log("가로 : " + baseX + ", 세로 : " + baseY);
 
         int screenX = UnityEngine.Screen.width;
         int screenY = UnityEngine.Screen.height;
@@ -64,23 +64,24 @@ public class BackgroundManager : MonoBehaviour
          * r = ?
          * ah - bh = mh
          * mh/ ah = 1-r
-         * 80/800 = 0.1
+         * 80/800 = 0.1 (r)
          * 1-r = 0.9
          */
 
-        int newX = baseX - screenX;
-        int newXR = (1 - (newX / baseX));
+        float newX = baseX - screenX;
+        float newXR = (1 - (newX / baseX));
 
-    //    Debug.Log("비율 : " + newXR);
-        Debug.Log(screenX * newXR);
+        // Debug.Log("비율 : " + newXR);
+        // Debug.Log(screenX * newXR);
 
-        int newY = baseY - screenY;
-        int newYR = (1 - (newY / baseY));
+        float newY = baseY - screenY;
+        float newYR = (1 - (newY / baseY));
 
-     //   Debug.Log("비율 : " + newYR);
-    //    Debug.Log(screenY * newYR);
-        
-        if(newX>=0)
+        // Debug.Log("비율 : " + newYR);
+        // Debug.Log(screenY * newYR);
+
+        // 기본 X가 더 크다면 새로운 값을 넣어준다.
+        if (newX >= 0)
         {
             float newSize = 5 + (newXR);
             Camera.main.orthographicSize = newSize;
@@ -91,14 +92,6 @@ public class BackgroundManager : MonoBehaviour
             Camera.main.orthographicSize = newSize;
         }
 
-    }
-
-
-    int GCD(int a, int b)
-    {
-        // a>b
-        if (b == 0) return 0;
-        else return GCD(b, a & b);
     }
 
 }

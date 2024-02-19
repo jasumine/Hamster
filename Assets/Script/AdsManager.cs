@@ -12,7 +12,8 @@ public class AdsManager : MonoBehaviour
             RequestBanner();
     }
 
-    //±§∞Ì ø‰√ª Method
+    // √‚√≥ : https://wolfy.tistory.com/2 
+    // ±§∞Ì ø‰√ª Method
     private void RequestBanner()
     {
         //Test Banner ID : ca-app-pub-3940256099942544/6300978111

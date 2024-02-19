@@ -62,11 +62,12 @@ public class UIManager : MonoBehaviour
 
 
     // 버튼을 이용해서 실행
+
+    // ==========박스 흔들기==========
     public void ShakeBox()
     {
         if (isShake == false)
         {
-            Debug.Log("박스 회전 실행");
             StartCoroutine("ShakeBoxZ");
         }
     }
@@ -102,6 +103,7 @@ public class UIManager : MonoBehaviour
         isShake = false;
     }
 
+    // ==========Rank 팝업==========
     public void ActiveRankPopUp()
     {
         RankPanel.SetActive(true);
@@ -115,6 +117,7 @@ public class UIManager : MonoBehaviour
         GameManager.GetInstance().audioManager.SetAudio("Exit");
     }
 
+    // ==========게임 설명==========
 
     public void ActiveInfoPopUP()
     {
@@ -130,6 +133,7 @@ public class UIManager : MonoBehaviour
         GameManager.GetInstance().audioManager.SetAudio("Exit");
     }
 
+    // 페이지 이동
     public void MoveBeforeInfoPage()
     {
         GameManager.GetInstance().audioManager.SetAudio("Button");
@@ -138,6 +142,7 @@ public class UIManager : MonoBehaviour
             currentPage--;
             for(int i =0; i<infoImages.Length; i++)
             {
+                // 현재 페이지에 맞추어서 색깔을 바꾸어 준다.
                 if(i==currentPage)
                 {
                     infoImages[i].gameObject.SetActive(true);
@@ -155,6 +160,7 @@ public class UIManager : MonoBehaviour
             return;
         }
     }
+
     public void MoveAfterInfoPage()
     {
         GameManager.GetInstance().audioManager.SetAudio("Button");
@@ -163,6 +169,7 @@ public class UIManager : MonoBehaviour
             currentPage++;
             for (int i = 0; i < infoImages.Length; i++)
             {
+                // 현재 페이지에 맞추어서 색깔을 바꾸어 준다.
                 if (i == currentPage)
                 {
                     infoImages[i].gameObject.SetActive(true);
@@ -171,7 +178,7 @@ public class UIManager : MonoBehaviour
                 else
                 {
                     infoImages[i].gameObject.SetActive(false);
-                    infoText[i].color = new Color32(205,231,220,255);
+                    infoText[i].color = new Color32(205, 231, 220, 255);
                 }
             }
         }
@@ -180,6 +187,8 @@ public class UIManager : MonoBehaviour
             return;
         }
     }
+
+    // ==========게임 설정==========
 
     public void ActiveSettingPopUp()
     {
@@ -195,6 +204,7 @@ public class UIManager : MonoBehaviour
         GameManager.GetInstance().audioManager.SetAudio("EXIT");
     }
 
+    // 볼륨 조절
     public void DecreaseBGMVolume()
     {
         GameManager.GetInstance().audioManager.SetBGM(-0.1f);
@@ -218,6 +228,7 @@ public class UIManager : MonoBehaviour
         SFXImage.fillAmount +=0.1f;
     }
 
+    // ==========게임 오버==========
     public void UnActiveGameOverImage()
     {
         EndImage.SetActive(false);

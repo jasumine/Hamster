@@ -30,6 +30,7 @@ public class Player : MonoBehaviour
         else return;
     }
 
+    // 키보드에서 움직일 때 < >
     private void Move()
     {
         float horizontalValue = Input.GetAxis("Horizontal");

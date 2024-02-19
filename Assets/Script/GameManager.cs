@@ -12,12 +12,10 @@ using UnityEngine.EventSystems;
 
 public class GameManager : MonoBehaviour
 {
-    public List<GameObject> gameSceneList;
-
     [SerializeField] private GameObject[] jellys;
     [SerializeField] private SpriteRenderer nowJelly;
     [SerializeField] private SpriteRenderer nextJelly;
-    public GameObject jellyBundle;
+    public GameObject jellyBundle; // Restart시에 삭제 하기 편하기 위한 부모 객체
 
     public ParticleSystem thunderEffect;
     public GameObject glovalVolume;
@@ -27,9 +25,11 @@ public class GameManager : MonoBehaviour
     public bool ismove = true;
     public int score = 0;
 
-    public float delayTime = 0.5f;
+    // push delay 변수
+    public float delayTime = 0.5f; 
     public bool isdelay = false;
 
+    // create delay 변수
     public float delayCreateTime;
     public bool isDelayCreate = false;
 
@@ -47,10 +47,11 @@ public class GameManager : MonoBehaviour
     private UIManager ui;
     public AudioManager audioManager;
 
+    public List<GameObject> jellyObjects;
+
+
     private static GameManager instance;
     private GameManager() { }
-
-    public List<GameObject> jellyObjects; 
 
     public static GameManager GetInstance()
     {
@@ -82,8 +83,6 @@ public class GameManager : MonoBehaviour
         //PlayerPrefs.SetInt("FirstScore", 0);
 
         LoadScorce();
-
-       // StartCoroutine(RankData());
     }
 
     private void Update()
@@ -180,14 +179,12 @@ public class GameManager : MonoBehaviour
 
                             // 터치의 x좌표를 받아와서 player의 위치를 x로 옮기고 push
 
-                            //MousePosition = touch.position;
-                            //MousePosition = camera.ScreenToWorldPoint(MousePosition);
-
                             Vector3 touchPosition = Camera.main.ScreenToWorldPoint(touch.position);
                             float mouseX = touchPosition.x;
 
                             Player playerPos = player.GetOrAddComponent<Player>();
 
+                            // 범위를 벗어나면 최소 최대 값으로 옮기기
                             if (mouseX <= playerPos.minXPos)
                             {
                                 mouseX = playerPos.minXPos;
@@ -250,6 +247,8 @@ public class GameManager : MonoBehaviour
         isdelay = false;
     }
 
+
+    // ==========미리 보여지는 젤리 생성==========
     private void SetNowJelly()
     {
         if (nowJelly.sprite == null)
@@ -437,7 +436,7 @@ public class GameManager : MonoBehaviour
     }
 
 
-
+    // deadLine 박스 확인
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;
